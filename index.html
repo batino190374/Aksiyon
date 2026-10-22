@@ -79,7 +79,7 @@
             display: flex; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* GİRİŞ & KAYIT MODALI */
+        /* GİRİŞ MODALI */
         .auth-overlay {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px);
@@ -88,38 +88,23 @@
 
         .auth-card {
             background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 16px; padding: 30px; width: 100%; max-width: 420px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); text-align: left;
+            border-radius: 16px; padding: 30px; width: 100%; max-width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); text-align: center;
         }
 
-        .auth-card h2 { font-size: 1.6rem; color: var(--primary); margin-bottom: 5px; }
-        .auth-card p { color: var(--text-sub); font-size: 0.85rem; margin-bottom: 20px; line-height: 1.4; }
+        .auth-card h2 { font-size: 1.8rem; color: var(--primary); margin-bottom: 8px; }
+        .auth-card p { color: var(--text-sub); font-size: 0.9rem; margin-bottom: 20px; }
 
-        .auth-input {
+        .auth-input, .auth-select {
             width: 100%; padding: 12px 16px; border-radius: 8px;
             border: 1px solid var(--border); background: var(--bg-dark);
-            color: var(--text-main); font-size: 0.95rem; margin-bottom: 12px; outline: none;
+            color: var(--text-main); font-size: 1rem; margin-bottom: 5px; outline: none;
         }
 
-        .auth-btn-group { display: flex; gap: 10px; margin-top: 5px; }
-
-        .auth-btn-secondary {
-            flex: 1; padding: 12px; border-radius: 8px; border: 1px solid var(--border);
-            background: var(--bg-dark); color: var(--text-main); font-weight: bold;
-            font-size: 0.95rem; cursor: pointer;
-        }
-
-        .auth-btn-primary {
-            flex: 1; padding: 12px; border-radius: 8px; border: none;
+        .auth-btn {
+            width: 100%; padding: 12px; border-radius: 8px; border: none;
             background: var(--primary); color: #000; font-weight: bold;
-            font-size: 0.95rem; cursor: pointer;
-        }
-
-        .auth-btn-primary:hover { background: var(--primary-hover); }
-
-        .auth-checkbox-label {
-            display: flex; align-items: center; gap: 8px; font-size: 0.85rem;
-            color: var(--text-sub); margin-top: 15px; cursor: pointer;
+            font-size: 1rem; cursor: pointer; margin-top: 5px;
         }
 
         /* SABİT SOL MENÜ */
@@ -260,70 +245,7 @@
 
         .btn-open { background: var(--primary); color: #000; }
 
-        /* DM MESAJLAŞMA SİSTEMİ ARAYÜZÜ */
-        .chat-container {
-            display: flex; height: 500px; background: var(--bg-card);
-            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-        }
-
-        .chat-users-list {
-            width: 240px; border-right: 1px solid var(--border);
-            background: var(--bg-dark); overflow-y: auto;
-        }
-
-        .user-item {
-            padding: 12px 15px; display: flex; align-items: center; gap: 10px;
-            border-bottom: 1px solid var(--border); cursor: pointer;
-        }
-
-        .user-item:hover, .user-item.active {
-            background: rgba(255,255,255,0.05); color: var(--primary);
-        }
-
-        .online-dot {
-            width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
-        }
-
-        .chat-main {
-            flex: 1; display: flex; flex-direction: column;
-        }
-
-        .chat-header {
-            padding: 15px; border-bottom: 1px solid var(--border);
-            font-weight: bold; color: var(--primary); background: var(--bg-card);
-        }
-
-        .chat-messages {
-            flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
-        }
-
-        .msg-bubble {
-            max-width: 70%; padding: 10px 14px; border-radius: 12px; font-size: 0.9rem; word-break: break-all;
-        }
-
-        .msg-incoming {
-            background: var(--bg-dark); border: 1px solid var(--border); align-self: flex-start;
-        }
-
-        .msg-outgoing {
-            background: var(--primary); color: #000; align-self: flex-end; font-weight: 500;
-        }
-
-        .chat-input-box {
-            padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 10px;
-        }
-
-        .chat-input {
-            flex: 1; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border);
-            background: var(--bg-dark); color: var(--text-main); outline: none;
-        }
-
-        .chat-send-btn {
-            background: var(--accent); color: #000; border: none; padding: 0 20px;
-            border-radius: 8px; font-weight: bold; cursor: pointer;
-        }
-
-        /* TAM EKRAN TİYATRO MODU VİDEO OYNATICI */
+        /* YENİ TAM EKRAN TİYATRO MODU VİDEO OYNATICI */
         .fullscreen-video-overlay {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: rgba(11, 15, 25, 0.98); backdrop-filter: blur(10px);
@@ -355,6 +277,7 @@
         }
 
         .video-title-text { font-size: 1.2rem; font-weight: bold; color: var(--text-main); }
+
         .action-btns-group { display: flex; gap: 10px; }
 
         .report-btn {
@@ -425,23 +348,23 @@
         </div>
     </div>
 
-    <!-- RUMUZ + ŞİFRE GİRİŞ MODALI -->
+    <!-- GİRİŞ MODALI -->
     <div id="authModal" class="auth-overlay">
         <div class="auth-card">
-            <h2>Aksiyonders V6.0.0</h2>
-            <p>Devam etmek için rumuzunu ve şifreni gir. Kayıtlı değilsen Kayıt Ol tuşuna bas.</p>
+            <i class="fa-solid fa-graduation-cap logo-icon" style="font-size: 3rem; margin-bottom: 15px;"></i>
+            <h2>Aksiyonders</h2>
+            <p>Devam etmek için rumuzunu ve sınıfını seç</p>
             
-            <input type="text" id="usernameInput" class="auth-input" placeholder="rumuz (örn. batino)">
-            <input type="password" id="passwordInput" class="auth-input" placeholder="şifre">
+            <input type="text" id="usernameInput" class="auth-input" placeholder="Rumuzun...">
+            
+            <select id="gradeSelect" class="auth-select">
+                <option value="6. Sınıf">6. Sınıf (Aktif - Maarif Modeli)</option>
+                <option value="5. Sınıf">5. Sınıf</option>
+                <option value="7. Sınıf">7. Sınıf</option>
+                <option value="8. Sınıf">8. Sınıf</option>
+            </select>
 
-            <div class="auth-btn-group">
-                <button onclick="registerUser()" class="auth-btn-secondary">Kayıt Ol</button>
-                <button onclick="loginUser()" class="auth-btn-primary">Giriş Yap</button>
-            </div>
-
-            <label class="auth-checkbox-label">
-                <input type="checkbox" id="rememberMe" checked> Oturumu açık tut
-            </label>
+            <button onclick="loginUser()" class="auth-btn">Sisteme Giriş Yap 🚀</button>
         </div>
     </div>
 
@@ -463,9 +386,6 @@
             </li>
             <li class="nav-item" onclick="showSection('yaziliPdf')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-file-pdf" style="color: #ef4444;"></i><span>Yazılı PDF'leri</span></div></a>
-            </li>
-            <li class="nav-item" onclick="showSection('dmSection')">
-                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-comments" style="color: #38bdf8;"></i><span>Özel Mesajlar (DM)</span></div></a>
             </li>
             <li class="nav-item" onclick="showSection('feedback')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-comment-dots"></i><span>Geri Bildirim</span></div></a>
@@ -522,18 +442,18 @@
                             <span>Dersler & Videolar ➔</span>
                         </div>
                     </div>
-                    <div class="stat-card" onclick="showSection('dmSection')">
-                        <div class="stat-icon"><i class="fa-solid fa-comments" style="color: #38bdf8;"></i></div>
+                    <div class="stat-card" onclick="showSection('yaziliPdf')">
+                        <div class="stat-icon"><i class="fa-solid fa-file-pdf" style="color: #ef4444;"></i></div>
                         <div class="stat-info">
-                            <h4>Özel Mesajlar</h4>
-                            <span>DM Sohbet Merkezi ➔</span>
+                            <h4>Yazılı Sınav</h4>
+                            <span>PDF Arşivi ➔</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="card" onclick="showSection('duyurular')" style="cursor: pointer;">
                     <h3><i class="fa-solid fa-circle-info"></i> Bilgilendirme (Duyurulara Geç ➔)</h3>
-                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Sürüm V6.0.0 yayınlandı! Akıllı PDF algılama, video içi sonraki konu geçişi, şifreli hesap yönetimi ve tam teşekküllü DM modülü aktif edildi.</p>
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Sürüm V5.4.0 yayınlandı! Akıllı PDF algılama sistemi, video içi sonraki konu geçişi aktifleştirildi.</p>
                 </div>
             </div>
 
@@ -543,12 +463,11 @@
                     <i class="fa-solid fa-bullhorn" style="color: var(--primary);"></i> Duyurular
                 </h2>
                 <div class="card">
-                    <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Sürüm V6.0.0 Güncelleme Notları</h3>
+                    <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Sürüm V5.4.0 Güncelleme Notları</h3>
                     <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 8px; line-height: 1.6;">
                         • **Akıllı PDF Desteği:** Dosya ismi karmaşasını çözen dinamik PDF bağlantı altyapısı entegre edildi.<br>
-                        • **Video Oyuncusu İyileştirmeleri:** Sitede izleme penceresine 'Sonraki Konu ➔' butonu ve hata bildirim mekanizması yerleştirildi.<br>
-                        • **Özel Mesaj (DM) Sistemi:** Platform içi mesajlaşma ekranı tamamen işlevsel hale getirildi.<br>
-                        • **Güvenli Kimlik Doğrulama:** Rumuz + şifre eşleştirmesi ile hesap güvenliği en üst seviyeye taşındı.
+                        • **Yönetim Paneli:** Kurucu özel paneli güvenli erisime kavuşturuldu.<br>
+                        • **Video Oyuncusu İyileştirmeleri:** Sitede izleme penceresine 'Sonraki Konu ➔' butonu ve hata bildirim mekanizması yerleştirildi.
                     </p>
                 </div>
             </div>
@@ -559,14 +478,96 @@
                     <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Ders Videoları
                 </h2>
 
+                <!-- FEN BİLİMLERİ -->
                 <div class="accordion-header" onclick="toggleAccordion('fenAccordion')">
                     <span><i class="fa-solid fa-flask" style="color: var(--accent); margin-right: 10px;"></i> Fen Bilimleri</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div id="fenAccordion" class="accordion-content">
-                    <div class="sub-topic-item" onclick="openTheater(0)">
-                        <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş Sistemi ve Gezegenler</span>
-                        <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                    <p style="color: var(--text-sub); margin-bottom: 10px; font-size: 0.9rem;">Ünite seçiniz:</p>
+                    
+                    <div class="accordion-header" onclick="toggleAccordion('fenUnite1')">
+                        <span>1. Ünite: Güneş Sistemi ve Tutulmalar</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div id="fenUnite1" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openTheater(0)">
+                            <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş Sistemi ve Gezegenler</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openTheater(1)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Video: Güneş Sistemi Soru Çözümü</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openTheater(2)">
+                            <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş ve Ay Tutulmaları</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                    </div>
+
+                    <div class="accordion-header" onclick="toggleAccordion('fenUnite2')">
+                        <span>2. Ünite: Kuvvet ve Hareket</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div id="fenUnite2" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openTheater(3)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Bileşke Kuvvet</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openTheater(4)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Dengelenmiş ve Dengelenmemiş Kuvvetler</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MATEMATİK -->
+                <div class="accordion-header" onclick="toggleAccordion('matAccordion')">
+                    <span><i class="fa-solid fa-calculator" style="color: var(--primary); margin-right: 10px;"></i> Matematik</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div id="matAccordion" class="accordion-content">
+                    <p style="color: var(--text-sub); margin-bottom: 10px; font-size: 0.9rem;">Ünite seçiniz:</p>
+
+                    <div class="accordion-header" onclick="toggleAccordion('matUnite1')">
+                        <span>1. Ünite: Sayılar ve Nicelikler</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div id="matUnite1" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openTheater(5)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Çarpanlar ve Katlar (6MAT1)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openTheater(6)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Asal Sayılar ve Asal Çarpanlar (6MAT3)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openTheater(7)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ortak Katlar ve Ortak Bölenler (6MAT4)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                    </div>
+
+                    <div class="accordion-header" onclick="toggleAccordion('matUnite2')">
+                        <span>2. Ünite: Verilerden Olasılığa</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div id="matUnite2" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openTheater(8)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Olasılık (6MAT5)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
+                    </div>
+
+                    <div class="accordion-header" onclick="toggleAccordion('matUnite3')">
+                        <span>3. Ünite: Sayılar ve Nicelikler 2</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div id="matUnite3" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openTheater(9)">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ondalık Gösterim (6MAT6)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -576,48 +577,54 @@
                 <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
                     <i class="fa-solid fa-file-pdf" style="color: #ef4444;"></i> Yazılı Çalışma PDF Arşivi
                 </h2>
+                
                 <div class="pdf-row">
                     <div>
                         <h4 style="color: var(--text-main);">6. Sınıf Fen Bilimleri 1. Dönem 1. Yazılı Çalışması</h4>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
                     </div>
                     <div class="pdf-actions">
                         <a href="fen-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- DM MESAJLAŞMA SİSTEMİ -->
-            <div id="dmSectionView" class="hidden">
-                <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
-                    <i class="fa-solid fa-comments" style="color: #38bdf8;"></i> Özel Mesajlar (DM)
-                </h2>
-                <div class="chat-container">
-                    <div class="chat-users-list">
-                        <div style="padding: 10px 15px; font-size: 0.8rem; color: var(--text-sub); font-weight: bold; border-bottom: 1px solid var(--border);">
-                            AKTİF KULLANICILAR
-                        </div>
-                        <div class="user-item active">
-                            <div class="online-dot"></div>
-                            <span id="activeUserSpan">Kullanıcı</span>
-                        </div>
+                <div class="pdf-row">
+                    <div>
+                        <h4 style="color: var(--text-main);">6. Sınıf Sosyal Bilgiler 1. Dönem 1. Yazılı Çalışması</h4>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
                     </div>
-                    <div class="chat-main">
-                        <div class="chat-header">💬 Genel Sohbet & DM Odası</div>
-                        <div class="chat-messages" id="chatMessageList">
-                            <div class="msg-bubble msg-incoming">Aksiyon V6.0.0 DM sistemine hoş geldin!</div>
-                        </div>
-                        <div class="chat-input-box">
-                            <input type="text" id="chatMsgInput" class="chat-input" placeholder="Mesajını yaz..." onkeypress="checkEnter(event)">
-                            <button onclick="sendChatMessage()" class="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
-                        </div>
+                    <div class="pdf-actions">
+                        <a href="sosyal-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                    </div>
+                </div>
+
+                <div class="pdf-row">
+                    <div>
+                        <h4 style="color: var(--text-main);">6. Sınıf Din Kültürü 1. Dönem 1. Yazılı Çalışması</h4>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="din-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                    </div>
+                </div>
+
+                <div class="pdf-row">
+                    <div>
+                        <h4 style="color: var(--text-main);">6. Sınıf Türkçe 1. Dönem 1. Yazılı Çalışması</h4>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="turkce-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
                     </div>
                 </div>
             </div>
 
-            <!-- GERİ BİLDİRİM -->
+            <!-- GERİ BİLDİRİM BÖLÜMÜ -->
             <div id="feedbackSection" class="hidden">
                 <div class="feedback-box">
                     <h2><i class="fa-solid fa-comment-dots" style="color: var(--primary);"></i> Geri Bildirim Gönder</h2>
+                    <p style="color: var(--text-sub); margin-bottom: 20px; font-size: 0.9rem;">Önerilerini ve gördüğün hataları doğrudan kurucuya ilet.</p>
+                    
                     <input type="text" id="fbTitle" class="feedback-input" placeholder="Konu başlığı...">
                     <textarea id="fbContent" class="feedback-textarea" placeholder="Mesajını buraya yaz..."></textarea>
                     <button onclick="sendFeedback()" class="feedback-btn"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
@@ -627,26 +634,39 @@
             <!-- ADMIN PANELİ -->
             <div id="adminSection" class="hidden">
                 <div class="card" style="border-color: #f59e0b;">
-                    <h3><i class="fa-solid fa-shield-halved" style="color: #f59e0b;"></i> Admin Paneli</h3>
+                    <h3><i class="fa-solid fa-shield-halved" style="color: #f59e0b;"></i> Admin Paneli - Geri Bildirimler</h3>
                     <div id="feedbackList"></div>
                 </div>
             </div>
         </div>
 
-        <footer>Made by batino190374</footer>
+        <footer>
+            Made by batino190374
+        </footer>
     </div>
 
     <script>
+        // VİDEO LİSTESİ DİZİSİ
         const videoList = [
-            { title: 'Konu Anlatımı: Güneş Sistemi ve Gezegenler', url: 'https://www.youtube.com/embed/82XOZvbMPfY' }
+            { title: 'Konu Anlatımı: Güneş Sistemi ve Gezegenler', url: 'https://www.youtube.com/embed/82XOZvbMPfY' },
+            { title: 'Video: Güneş Sistemi Soru Çözümü', url: 'https://www.youtube.com/embed/BfPRmu8eE9Y' },
+            { title: 'Konu Anlatımı: Güneş ve Ay Tutulmaları', url: 'https://www.youtube.com/embed/9U5n0ejPnxM' },
+            { title: 'Bileşke Kuvvet', url: 'https://www.youtube.com/embed/W2h_V590LQs' },
+            { title: 'Dengelenmiş ve Dengelenmemiş Kuvvetler', url: 'https://www.youtube.com/embed/9Un7og2Bg8A' },
+            { title: 'Çarpanlar ve Katlar (6MAT1)', url: 'https://www.youtube.com/embed/82XOZvbMPfY' },
+            { title: 'Asal Sayılar ve Asal Çarpanlar (6MAT3)', url: 'https://www.youtube.com/embed/BfPRmu8eE9Y' },
+            { title: 'Ortak Katlar ve Ortak Bölenler (6MAT4)', url: 'https://www.youtube.com/embed/9U5n0ejPnxM' },
+            { title: 'Olasılık (6MAT5)', url: 'https://www.youtube.com/embed/W2h_V590LQs' },
+            { title: 'Ondalık Gösterim (6MAT6)', url: 'https://www.youtube.com/embed/9Un7og2Bg8A' }
         ];
 
         let currentVideoIndex = 0;
 
         function openTheater(index) {
             currentVideoIndex = index;
-            document.getElementById('theaterVideoTitle').innerText = videoList[index].title;
-            document.getElementById('theaterIframe').src = videoList[index].url + "?autoplay=1";
+            const video = videoList[index];
+            document.getElementById('theaterVideoTitle').innerText = video.title;
+            document.getElementById('theaterIframe').src = video.url + "?autoplay=1";
             document.getElementById('theaterOverlay').style.display = 'flex';
         }
 
@@ -660,6 +680,19 @@
             document.getElementById('theaterIframe').src = '';
         }
 
+        function reportVideoError() {
+            const currentVideo = videoList[currentVideoIndex].title;
+            closeTheater();
+            showSection('feedback');
+            document.getElementById('fbTitle').value = "Video Hatası: " + currentVideo;
+            document.getElementById('fbContent').value = "'" + currentVideo + "' isimli videoda şu sorun var: ";
+            document.getElementById('fbContent').focus();
+        }
+
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeTheater();
+        });
+
         // OTOMATİK PDF UZANTI KONTROLÜ
         document.querySelectorAll('.pdf-actions a, .pdf-row a').forEach(link => {
             let href = link.getAttribute('href');
@@ -668,54 +701,29 @@
             }
         });
 
-        // DM SİSTEMİ FONKSİYONLARI
-        function loadMessages() {
-            let msgs = JSON.parse(localStorage.getItem('aksiyon_dm_msgs') || '[]');
-            const chatList = document.getElementById('chatMessageList');
-            const currentUser = localStorage.getItem('aksiyon_user');
-            
-            chatList.innerHTML = msgs.map(m => `
-                <div class="msg-bubble ${m.user === currentUser ? 'msg-outgoing' : 'msg-incoming'}">
-                    <small style="display:block; font-size:0.75rem; opacity:0.8; margin-bottom:2px;">${m.user}</small>
-                    ${m.text}
-                </div>
-            `).join('') || '<div class="msg-bubble msg-incoming">Henüz mesaj yok. İlk mesajı sen gönder!</div>';
-            chatList.scrollTop = chatList.scrollHeight;
-        }
-
-        function sendChatMessage() {
-            const input = document.getElementById('chatMsgInput');
-            const msg = input.value.trim();
-            const currentUser = localStorage.getItem('aksiyon_user');
-            if(!msg) return;
-
-            let msgs = JSON.parse(localStorage.getItem('aksiyon_dm_msgs') || '[]');
-            msgs.push({ user: currentUser, text: msg, time: new Date().toLocaleTimeString() });
-            localStorage.setItem('aksiyon_dm_msgs', JSON.stringify(msgs));
-
-            input.value = '';
-            loadMessages();
-        }
-
-        function checkEnter(e) {
-            if (e.key === 'Enter') sendChatMessage();
-        }
-
+        // TEMA YÖNETİMİ
         function toggleThemeMenu() { document.getElementById('themeDropdown').classList.toggle('show'); }
+
         function setTheme(themeName) {
             document.documentElement.setAttribute('data-theme', themeName);
             localStorage.setItem('aksiyon_theme', themeName);
             document.getElementById('themeDropdown').classList.remove('show');
         }
 
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('aksiyon_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        loadTheme();
+
         function toggleAccordion(id) { document.getElementById(id).classList.toggle('show'); }
 
+        // SEKME GEÇİŞLERİ
         function showSection(sectionName) {
             document.getElementById('homeSection').classList.add('hidden');
             document.getElementById('duyurularSection').classList.add('hidden');
             document.getElementById('derslerSection').classList.add('hidden');
             document.getElementById('yaziliPdfSection').classList.add('hidden');
-            document.getElementById('dmSectionView').classList.add('hidden');
             document.getElementById('feedbackSection').classList.add('hidden');
             document.getElementById('adminSection').classList.add('hidden');
 
@@ -723,24 +731,25 @@
             if (sectionName === 'duyurular') document.getElementById('duyurularSection').classList.remove('hidden');
             if (sectionName === 'dersler') document.getElementById('derslerSection').classList.remove('hidden');
             if (sectionName === 'yaziliPdf') document.getElementById('yaziliPdfSection').classList.remove('hidden');
-            if (sectionName === 'dmSection') {
-                document.getElementById('dmSectionView').classList.remove('hidden');
-                loadMessages();
-            }
             if (sectionName === 'feedback') document.getElementById('feedbackSection').classList.remove('hidden');
-            if (sectionName === 'admin') document.getElementById('adminSection').classList.remove('hidden');
+            if (sectionName === 'admin') {
+                document.getElementById('adminSection').classList.remove('hidden');
+                loadFeedbacks();
+            }
         }
 
-        // KİMLİK & OTURUM YÖNETİMİ
+        // KULLANICI GİRİŞİ & ADMİN KONTROLÜ
         function checkUser() {
             const user = localStorage.getItem('aksiyon_user');
+            const grade = localStorage.getItem('aksiyon_grade');
+
             if (user) {
                 document.getElementById('authModal').classList.add('hidden');
                 document.getElementById('displayUsername').innerText = user;
                 document.getElementById('welcomeName').innerText = user;
-                document.getElementById('activeUserSpan').innerText = user;
                 document.getElementById('userAvatar').innerText = user.charAt(0).toUpperCase();
 
+                // ADMIN KONTROLÜ (GİZLİ)
                 if (user === 'admin190374') {
                     document.getElementById('adminMenuLink').style.display = 'block';
                 }
@@ -749,51 +758,49 @@
             }
         }
 
-        function registerUser() {
-            const user = document.getElementById('usernameInput').value.trim();
-            const pass = document.getElementById('passwordInput').value.trim();
-            if(!user || !pass) {
-                alert('Lütfen rumuz ve şifre yaz kanka!');
-                return;
-            }
-            let usersDb = JSON.parse(localStorage.getItem('aksiyon_users_db') || '{}');
-            if(usersDb[user]) {
-                alert('Bu rumuz zaten alınmış! Başka seç veya giriş yap.');
-                return;
-            }
-            usersDb[user] = pass;
-            localStorage.setItem('aksiyon_users_db', JSON.stringify(usersDb));
-            localStorage.setItem('aksiyon_user', user);
-            alert('Kayıt başarıyla oluşturuldu! Giriş yapılıyor...');
-            checkUser();
-        }
-
         function loginUser() {
             const user = document.getElementById('usernameInput').value.trim();
-            const pass = document.getElementById('passwordInput').value.trim();
-            if(!user || !pass) {
-                alert('Lütfen rumuz ve şifre gir kanka!');
-                return;
-            }
-            let usersDb = JSON.parse(localStorage.getItem('aksiyon_users_db') || '{}');
-            
-            if(user === 'admin190374' && pass === '190374') {
-                localStorage.setItem('aksiyon_user', user);
-                checkUser();
-                return;
-            }
-
-            if(usersDb[user] && usersDb[user] === pass) {
-                localStorage.setItem('aksiyon_user', user);
-                checkUser();
-            } else {
-                alert('Hatalı rumuz veya şifre! Kayıtlı değilsen Kayıt Ol tuşuna bas.');
-            }
+            const grade = document.getElementById('gradeSelect').value;
+            if (!user) return;
+            localStorage.setItem('aksiyon_user', user);
+            localStorage.setItem('aksiyon_grade', grade);
+            checkUser();
         }
 
         function logoutUser() {
             localStorage.removeItem('aksiyon_user');
+            localStorage.removeItem('aksiyon_grade');
             location.reload();
+        }
+
+        // GERİ BİLDİRİM SİSTEMİ
+        function sendFeedback() {
+            const title = document.getElementById('fbTitle').value.trim();
+            const content = document.getElementById('fbContent').value.trim();
+            const user = localStorage.getItem('aksiyon_user');
+
+            if (!title || !content) return alert('Lütfen tüm alanları doldurun.');
+
+            let feedbacks = JSON.parse(localStorage.getItem('aksiyon_feedbacks') || '[]');
+            feedbacks.push({ user: user, title: title, content: content, date: new Date().toLocaleString() });
+            localStorage.setItem('aksiyon_feedbacks', JSON.stringify(feedbacks));
+
+            alert('Geri bildiriminiz iletildi!');
+            document.getElementById('fbTitle').value = '';
+            document.getElementById('fbContent').value = '';
+            showSection('home');
+        }
+
+        function loadFeedbacks() {
+            const listContainer = document.getElementById('feedbackList');
+            let feedbacks = JSON.parse(localStorage.getItem('aksiyon_feedbacks') || '[]');
+            listContainer.innerHTML = feedbacks.map(fb => `
+                <div style="background: var(--bg-dark); padding: 15px; border-radius: 8px; margin-top: 10px; border: 1px solid var(--border);">
+                    <small style="color: var(--text-sub);">${fb.user} - ${fb.date}</small>
+                    <h4 style="color: var(--primary);">${fb.title}</h4>
+                    <p>${fb.content}</p>
+                </div>
+            `).join('') || '<p style="color: var(--text-sub);">Henüz geri bildirim yok.</p>';
         }
 
         checkUser();
