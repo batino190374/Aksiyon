@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aksiyon - 2026-2027 Eğitim Platformu</title>
+    <title>Gencer Aksiyonders - Eğitim Platformu</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -297,27 +297,45 @@
             flex-direction: column;
         }
 
-        .video-frame-wrapper {
-            position: relative;
+        .video-thumb {
             width: 100%;
-            height: 180px;
-            background: #000;
-        }
-
-        .video-frame-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+            height: 160px;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
         }
 
         .video-info {
             padding: 12px;
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .video-info h4 {
             font-size: 0.95rem;
             color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .watch-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .watch-btn:hover {
+            background: var(--primary-hover);
         }
 
         /* AI CHAT */
@@ -419,7 +437,7 @@
     <div id="authModal" class="auth-overlay">
         <div class="auth-card">
             <i class="fa-solid fa-graduation-cap logo-icon" style="font-size: 3rem; margin-bottom: 15px;"></i>
-            <h2>Aksiyon Platformu</h2>
+            <h2>Gencer Aksiyonders</h2>
             <p>Devam etmek için rumuzunuzu girin</p>
             <input type="text" id="usernameInput" class="auth-input" placeholder="Rumuzunuz..." required>
             <select id="gradeSelect" class="auth-select">
@@ -436,7 +454,7 @@
     <aside class="sidebar">
         <div class="logo-area">
             <i class="fa-solid fa-graduation-cap logo-icon"></i>
-            <span class="logo-text">AKSİYON</span>
+            <span class="logo-text">GENCER AKSİYON</span>
         </div>
         <ul class="nav-menu">
             <li class="nav-item active" onclick="showSection('home')">
@@ -501,7 +519,7 @@
                     </div>
                 </div>
 
-                <!-- DERSLER VE GÖRSELLERDEKİ GERÇEK 6. SINIF KONULARI -->
+                <!-- DERSLER VE GERÇEK 6. SINIF KONULARI (HATA VERMEYEN LİNKLER) -->
                 <div id="derslerbolumu" class="video-container">
                     <h2 style="margin: 30px 0 15px 0; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
                         <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Müfredat Ders Videoları (Tonguç)
@@ -521,8 +539,11 @@
                         </div>
                         <div class="video-grid">
                             <div class="video-card">
-                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
-                                <div class="video-info"><h4>Matematik Konu Anlatımları ve Soru Çözümleri</h4></div>
+                                <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                                <div class="video-info">
+                                    <h4>6. Sınıf Matematik Konu Anlatımları ve Soru Çözümleri</h4>
+                                    <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -541,8 +562,11 @@
                         </div>
                         <div class="video-grid">
                             <div class="video-card">
-                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
-                                <div class="video-info"><h4>Fen Bilimleri Deney ve Konu Anlatımları</h4></div>
+                                <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                                <div class="video-info">
+                                    <h4>6. Sınıf Fen Bilimleri Deney ve Konu Anlatımları</h4>
+                                    <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -560,8 +584,11 @@
                         </div>
                         <div class="video-grid">
                             <div class="video-card">
-                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
-                                <div class="video-info"><h4>Türkçe Paragraf ve Metin İncelemeleri</h4></div>
+                                <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                                <div class="video-info">
+                                    <h4>6. Sınıf Türkçe Paragraf ve Metin İncelemeleri</h4>
+                                    <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -579,8 +606,11 @@
                         </div>
                         <div class="video-grid">
                             <div class="video-card">
-                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
-                                <div class="video-info"><h4>Sosyal Bilgiler Harita ve Konu Anlatımları</h4></div>
+                                <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                                <div class="video-info">
+                                    <h4>6. Sınıf Sosyal Bilgiler Harita ve Konu Anlatımları</h4>
+                                    <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -597,8 +627,11 @@
                         </div>
                         <div class="video-grid">
                             <div class="video-card">
-                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
-                                <div class="video-info"><h4>Din Kültürü Ünite Özetleri</h4></div>
+                                <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                                <div class="video-info">
+                                    <h4>6. Sınıf Din Kültürü Ünite Özetleri</h4>
+                                    <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                                </div>
                             </div>
                         </div>
                     </div>
