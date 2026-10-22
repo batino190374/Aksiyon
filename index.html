@@ -21,135 +21,75 @@
         }
 
         [data-theme="light"] {
-            --bg-dark: #f1f5f9;
-            --bg-card: #ffffff;
-            --sidebar-bg: #ffffff;
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --accent: #059669;
-            --text-main: #0f172a;
-            --text-sub: #64748b;
-            --border: #cbd5e1;
+            --bg-dark: #f1f5f9; --bg-card: #ffffff; --sidebar-bg: #ffffff;
+            --primary: #2563eb; --primary-hover: #1d4ed8; --accent: #059669;
+            --text-main: #0f172a; --text-sub: #64748b; --border: #cbd5e1;
         }
 
         [data-theme="emerald"] {
-            --bg-dark: #061a14;
-            --bg-card: #0b2920;
-            --sidebar-bg: #04130e;
-            --primary: #059669;
-            --primary-hover: #047857;
-            --accent: #34d399;
-            --text-main: #ecfdf5;
-            --text-sub: #6ee7b7;
-            --border: #064e3b;
+            --bg-dark: #061a14; --bg-card: #0b2920; --sidebar-bg: #04130e;
+            --primary: #059669; --primary-hover: #047857; --accent: #34d399;
+            --text-main: #ecfdf5; --text-sub: #6ee7b7; --border: #064e3b;
         }
 
         [data-theme="cyberpunk"] {
-            --bg-dark: #0f0728;
-            --bg-card: #1a0b3b;
-            --sidebar-bg: #0b041e;
-            --primary: #8b5cf6;
-            --primary-hover: #7c3aed;
-            --accent: #ec4899;
-            --text-main: #f5f3ff;
-            --text-sub: #c4b5fd;
-            --border: #3b2865;
+            --bg-dark: #0f0728; --bg-card: #1a0b3b; --sidebar-bg: #0b041e;
+            --primary: #8b5cf6; --primary-hover: #7c3aed; --accent: #ec4899;
+            --text-main: #f5f3ff; --text-sub: #c4b5fd; --border: #3b2865;
         }
 
         [data-theme="ocean"] {
-            --bg-dark: #0a192f;
-            --bg-card: #112240;
-            --sidebar-bg: #020c1b;
-            --primary: #64ffda;
-            --primary-hover: #4cd6b2;
-            --accent: #00b4d8;
-            --text-main: #e6f1ff;
-            --text-sub: #8892b0;
-            --border: #233554;
+            --bg-dark: #0a192f; --bg-card: #112240; --sidebar-bg: #020c1b;
+            --primary: #64ffda; --primary-hover: #4cd6b2; --accent: #00b4d8;
+            --text-main: #e6f1ff; --text-sub: #8892b0; --border: #233554;
         }
 
         [data-theme="sunset"] {
-            --bg-dark: #1f1113;
-            --bg-card: #2d191e;
-            --sidebar-bg: #140a0c;
-            --primary: #f97316;
-            --primary-hover: #ea580c;
-            --accent: #ef4444;
-            --text-main: #fff1f2;
-            --text-sub: #fca5a5;
-            --border: #4c282e;
+            --bg-dark: #1f1113; --bg-card: #2d191e; --sidebar-bg: #140a0c;
+            --primary: #f97316; --primary-hover: #ea580c; --accent: #ef4444;
+            --text-main: #fff1f2; --text-sub: #fca5a5; --border: #4c282e;
         }
 
         [data-theme="midnight"] {
-            --bg-dark: #030712;
-            --bg-card: #111827;
-            --sidebar-bg: #000000;
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --accent: #38bdf8;
-            --text-main: #f9fafb;
-            --text-sub: #9ca3af;
-            --border: #1f2937;
+            --bg-dark: #030712; --bg-card: #111827; --sidebar-bg: #000000;
+            --primary: #6366f1; --primary-hover: #4f46e5; --accent: #38bdf8;
+            --text-main: #f9fafb; --text-sub: #9ca3af; --border: #1f2937;
         }
 
         [data-theme="espresso"] {
-            --bg-dark: #1c1917;
-            --bg-card: #292524;
-            --sidebar-bg: #141210;
-            --primary: #d97706;
-            --primary-hover: #b45309;
-            --accent: #f59e0b;
-            --text-main: #fafaf9;
-            --text-sub: #a8a29e;
-            --border: #44403c;
+            --bg-dark: #1c1917; --bg-card: #292524; --sidebar-bg: #141210;
+            --primary: #d97706; --primary-hover: #b45309; --accent: #f59e0b;
+            --text-main: #fafaf9; --text-sub: #a8a29e; --border: #44403c;
         }
 
         [data-theme="aurora"] {
-            --bg-dark: #092026;
-            --bg-card: #0f343d;
-            --sidebar-bg: #051418;
-            --primary: #14b8a6;
-            --primary-hover: #0d9488;
-            --accent: #06b6d4;
-            --text-main: #f0fdfa;
-            --text-sub: #5eead4;
-            --border: #155e75;
+            --bg-dark: #092026; --bg-card: #0f343d; --sidebar-bg: #051418;
+            --primary: #14b8a6; --primary-hover: #0d9488; --accent: #06b6d4;
+            --text-main: #f0fdfa; --text-sub: #5eead4; --border: #155e75;
         }
 
         * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            box-sizing: border-box; margin: 0; padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            display: flex;
-            min-height: 100vh;
-            overflow-x: hidden;
+            background-color: var(--bg-dark); color: var(--text-main);
+            display: flex; min-height: 100vh; overflow-x: hidden;
         }
 
         /* GİRİŞ MODALI */
         .auth-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(8px);
-            z-index: 9999;
-            display: flex; align-items: center; justify-content: center;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px);
+            z-index: 9999; display: flex; align-items: center; justify-content: center;
         }
 
         .auth-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            width: 100%; max-width: 400px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-            text-align: center;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 30px; width: 100%; max-width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); text-align: center;
         }
 
         .auth-card h2 { font-size: 1.8rem; color: var(--primary); margin-bottom: 8px; }
@@ -161,11 +101,6 @@
             color: var(--text-main); font-size: 1rem; margin-bottom: 5px; outline: none;
         }
 
-        .error-text {
-            color: #ef4444; font-size: 0.8rem; text-align: left;
-            margin-bottom: 12px; display: block; font-weight: 500;
-        }
-
         .auth-btn {
             width: 100%; padding: 12px; border-radius: 8px; border: none;
             background: var(--primary); color: #000; font-weight: bold;
@@ -174,10 +109,8 @@
 
         /* SABİT SOL MENÜ */
         .sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border);
-            display: flex; flex-direction: column;
+            width: var(--sidebar-width); background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border); display: flex; flex-direction: column;
             position: fixed; height: 100vh; z-index: 100;
         }
 
@@ -213,8 +146,8 @@
 
         header {
             height: 70px; background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid var(--border); display: flex;
+            align-items: center; justify-content: space-between;
             padding: 0 30px; position: relative;
         }
 
@@ -311,9 +244,8 @@
         }
 
         .btn-open { background: var(--primary); color: #000; }
-        .btn-print { background: var(--accent); color: #000; }
 
-        /* YENİ TAM EKRAN TİYATRO MODU VİDEO OYNATICI (YOUTUBE TARZI) */
+        /* YENİ TAM EKRAN TİYATRO MODU VİDEO OYNATICI */
         .fullscreen-video-overlay {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: rgba(11, 15, 25, 0.98); backdrop-filter: blur(10px);
@@ -346,13 +278,21 @@
 
         .video-title-text { font-size: 1.2rem; font-weight: bold; color: var(--text-main); }
 
+        .action-btns-group { display: flex; gap: 10px; }
+
         .report-btn {
             background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid #ef4444;
             padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold;
             display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
         }
 
-        .report-btn:hover { background: #ef4444; color: #fff; }
+        .next-btn {
+            background: var(--primary); color: #000; border: none;
+            padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold;
+            display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
+        }
+
+        .next-btn:hover { background: var(--primary-hover); }
 
         .close-theater-btn {
             background: rgba(255,255,255,0.1); border: none; color: var(--text-main);
@@ -385,7 +325,7 @@
 </head>
 <body>
 
-    <!-- TAM EKRAN TİYATRO MODU VİDEO OYNATICI (YOUTUBE BENZERİ) -->
+    <!-- TAM EKRAN TİYATRO MODU VİDEO OYNATICI -->
     <div id="theaterOverlay" class="fullscreen-video-overlay">
         <div class="theater-header">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -400,7 +340,10 @@
             </div>
             <div class="theater-footer">
                 <div class="video-title-text" id="theaterVideoTitle">Ders Videosu</div>
-                <button class="report-btn" onclick="reportVideoError()"><i class="fa-solid fa-bug"></i> Video Geri Bildirimi / Hata Bildir</button>
+                <div class="action-btns-group">
+                    <button class="report-btn" onclick="reportVideoError()"><i class="fa-solid fa-bug"></i> Hata Bildir</button>
+                    <button class="next-btn" onclick="playNextVideo()"><i class="fa-solid fa-forward"></i> Sonraki Konu ➔</button>
+                </div>
             </div>
         </div>
     </div>
@@ -413,7 +356,6 @@
             <p>Devam etmek için rumuzunu ve sınıfını seç</p>
             
             <input type="text" id="usernameInput" class="auth-input" placeholder="Rumuzun...">
-            <span id="userError" class="error-text"></span>
             
             <select id="gradeSelect" class="auth-select">
                 <option value="6. Sınıf">6. Sınıf (Aktif - Maarif Modeli)</option>
@@ -444,9 +386,6 @@
             </li>
             <li class="nav-item" onclick="showSection('yaziliPdf')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-file-pdf" style="color: #ef4444;"></i><span>Yazılı PDF'leri</span></div></a>
-            </li>
-            <li class="nav-item" onclick="showSection('kitaplar')">
-                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-book"></i><span>Kitaplar & PDF</span></div></a>
             </li>
             <li class="nav-item" onclick="showSection('feedback')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-comment-dots"></i><span>Geri Bildirim</span></div></a>
@@ -514,7 +453,7 @@
 
                 <div class="card" onclick="showSection('duyurular')" style="cursor: pointer;">
                     <h3><i class="fa-solid fa-circle-info"></i> Bilgilendirme (Duyurulara Geç ➔)</h3>
-                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Sürüm v5.3.0 yayınlandı! YouTube tarzı tam ekran izleme modülü, video altı adı ve geri bildirim butonu eklendi!</p>
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Sürüm V5.3.0 yayınlandı! Akıllı PDF algılama sistemi, video içi sonraki konu geçişi ve kurucu admin paneli aktifleştirildi.</p>
                 </div>
             </div>
 
@@ -526,15 +465,14 @@
                 <div class="card">
                     <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Sürüm V5.3.0 Güncelleme Notları</h3>
                     <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 8px; line-height: 1.6;">
-                        • **Tam Ekran Tiyatro Modu:** Videoya basınca tüm ekranı kaplayan özel tiyatro sinema modu eklendi.<br>
-                        • **Video Altı Bilgilendirmesi:** Sol altta izlenen videonun ismi otomatik yazılıyor.<br>
-                        • **Video Hata / Geri Bildirimi:** Oynatıcının sağ altına tek tıkla hata bildirme butonu kondu.<br>
-                        • **Tüm Konular Eksiksiz Yüklendi:** Eksik görünen tüm Matematik ve Fen videoları menülere yerleştirildi.
+                        • **Akıllı PDF Desteği:** Dosya ismi karmaşasını çözen dinamik PDF bağlantı altyapısı entegre edildi.<br>
+                        • **Kurucu Admin Paneli:** `admin190374` rumuzuyla giriş yapan kurucular için Admin Paneli erişimi yeniden aktif kılındı.<br>
+                        • **Video Oyuncusu İyileştirmeleri:** Sitede izleme penceresine 'Sonraki Konu ➔' butonu ve hata bildirim mekanizması yerleştirildi.
                     </p>
                 </div>
             </div>
 
-            <!-- DERS VİDEOLARI (EKSİKSİZ TAM LİSTE) -->
+            <!-- DERS VİDEOLARI -->
             <div id="derslerSection" class="hidden">
                 <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
                     <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Ders Videoları
@@ -553,15 +491,15 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="fenUnite1" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openTheater('Konu Anlatımı: Güneş Sistemi ve Gezegenler', 'https://www.youtube.com/embed/82XOZvbMPfY')">
+                        <div class="sub-topic-item" onclick="openTheater(0)">
                             <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş Sistemi ve Gezegenler</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openTheater('Video: Güneş Sistemi Soru Çözümü', 'https://www.youtube.com/embed/BfPRmu8eE9Y')">
+                        <div class="sub-topic-item" onclick="openTheater(1)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Video: Güneş Sistemi Soru Çözümü</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openTheater('Konu Anlatımı: Güneş ve Ay Tutulmaları', 'https://www.youtube.com/embed/9U5n0ejPnxM')">
+                        <div class="sub-topic-item" onclick="openTheater(2)">
                             <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş ve Ay Tutulmaları</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
@@ -572,11 +510,11 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="fenUnite2" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openTheater('Bileşke Kuvvet', 'https://www.youtube.com/embed/W2h_V590LQs')">
+                        <div class="sub-topic-item" onclick="openTheater(3)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Bileşke Kuvvet</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openTheater('Dengelenmiş ve Dengelenmemiş Kuvvetler', 'https://www.youtube.com/embed/9Un7og2Bg8A')">
+                        <div class="sub-topic-item" onclick="openTheater(4)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Dengelenmiş ve Dengelenmemiş Kuvvetler</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
@@ -596,15 +534,15 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="matUnite1" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openTheater('Çarpanlar ve Katlar (6MAT1)', 'https://www.youtube.com/embed/82XOZvbMPfY')">
+                        <div class="sub-topic-item" onclick="openTheater(5)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Çarpanlar ve Katlar (6MAT1)</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openTheater('Asal Sayılar ve Asal Çarpanlar (6MAT3)', 'https://www.youtube.com/embed/BfPRmu8eE9Y')">
+                        <div class="sub-topic-item" onclick="openTheater(6)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Asal Sayılar ve Asal Çarpanlar (6MAT3)</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openTheater('Ortak Katlar ve Ortak Bölenler (6MAT4)', 'https://www.youtube.com/embed/9U5n0ejPnxM')">
+                        <div class="sub-topic-item" onclick="openTheater(7)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ortak Katlar ve Ortak Bölenler (6MAT4)</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
@@ -615,7 +553,7 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="matUnite2" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openTheater('Olasılık (6MAT5)', 'https://www.youtube.com/embed/W2h_V590LQs')">
+                        <div class="sub-topic-item" onclick="openTheater(8)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Olasılık (6MAT5)</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
@@ -626,7 +564,7 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="matUnite3" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openTheater('Ondalık Gösterim (6MAT6)', 'https://www.youtube.com/embed/9Un7og2Bg8A')">
+                        <div class="sub-topic-item" onclick="openTheater(9)">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ondalık Gösterim (6MAT6)</span>
                             <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Sitede İzle</span>
                         </div>
@@ -646,7 +584,37 @@
                         <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
                     </div>
                     <div class="pdf-actions">
-                        <a href="fen-yazili.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                        <a href="fen-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                    </div>
+                </div>
+
+                <div class="pdf-row">
+                    <div>
+                        <h4 style="color: var(--text-main);">6. Sınıf Sosyal Bilgiler 1. Dönem 1. Yazılı Çalışması</h4>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="sosyal-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                    </div>
+                </div>
+
+                <div class="pdf-row">
+                    <div>
+                        <h4 style="color: var(--text-main);">6. Sınıf Din Kültürü 1. Dönem 1. Yazılı Çalışması</h4>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="din-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                    </div>
+                </div>
+
+                <div class="pdf-row">
+                    <div>
+                        <h4 style="color: var(--text-main);">6. Sınıf Türkçe 1. Dönem 1. Yazılı Çalışması</h4>
+                        <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ Uyumlu Soru ve Çözümleri</p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="turkce-yazili" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
                     </div>
                 </div>
             </div>
@@ -666,7 +634,7 @@
             <!-- ADMIN PANELİ -->
             <div id="adminSection" class="hidden">
                 <div class="card" style="border-color: #f59e0b;">
-                    <h3><i class="fa-solid fa-shield-halved" style="color: #f59e0b;"></i> Admin Paneli</h3>
+                    <h3><i class="fa-solid fa-shield-halved" style="color: #f59e0b;"></i> Admin Paneli - Geri Bildirimler</h3>
                     <div id="feedbackList"></div>
                 </div>
             </div>
@@ -678,14 +646,33 @@
     </div>
 
     <script>
-        // TAM EKRAN TİYATRO SİNEMA OYNATICI FONKSİYONLARI
-        let activeVideoTitle = "";
+        // VİDEO LİSTESİ DİZİSİ
+        const videoList = [
+            { title: 'Konu Anlatımı: Güneş Sistemi ve Gezegenler', url: 'https://www.youtube.com/embed/82XOZvbMPfY' },
+            { title: 'Video: Güneş Sistemi Soru Çözümü', url: 'https://www.youtube.com/embed/BfPRmu8eE9Y' },
+            { title: 'Konu Anlatımı: Güneş ve Ay Tutulmaları', url: 'https://www.youtube.com/embed/9U5n0ejPnxM' },
+            { title: 'Bileşke Kuvvet', url: 'https://www.youtube.com/embed/W2h_V590LQs' },
+            { title: 'Dengelenmiş ve Dengelenmemiş Kuvvetler', url: 'https://www.youtube.com/embed/9Un7og2Bg8A' },
+            { title: 'Çarpanlar ve Katlar (6MAT1)', url: 'https://www.youtube.com/embed/82XOZvbMPfY' },
+            { title: 'Asal Sayılar ve Asal Çarpanlar (6MAT3)', url: 'https://www.youtube.com/embed/BfPRmu8eE9Y' },
+            { title: 'Ortak Katlar ve Ortak Bölenler (6MAT4)', url: 'https://www.youtube.com/embed/9U5n0ejPnxM' },
+            { title: 'Olasılık (6MAT5)', url: 'https://www.youtube.com/embed/W2h_V590LQs' },
+            { title: 'Ondalık Gösterim (6MAT6)', url: 'https://www.youtube.com/embed/9Un7og2Bg8A' }
+        ];
 
-        function openTheater(title, url) {
-            activeVideoTitle = title;
-            document.getElementById('theaterVideoTitle').innerText = title;
-            document.getElementById('theaterIframe').src = url + "?autoplay=1";
+        let currentVideoIndex = 0;
+
+        function openTheater(index) {
+            currentVideoIndex = index;
+            const video = videoList[index];
+            document.getElementById('theaterVideoTitle').innerText = video.title;
+            document.getElementById('theaterIframe').src = video.url + "?autoplay=1";
             document.getElementById('theaterOverlay').style.display = 'flex';
+        }
+
+        function playNextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+            openTheater(currentVideoIndex);
         }
 
         function closeTheater() {
@@ -694,7 +681,7 @@
         }
 
         function reportVideoError() {
-            const currentVideo = activeVideoTitle;
+            const currentVideo = videoList[currentVideoIndex].title;
             closeTheater();
             showSection('feedback');
             document.getElementById('fbTitle').value = "Video Hatası: " + currentVideo;
@@ -702,17 +689,20 @@
             document.getElementById('fbContent').focus();
         }
 
-        // ESC TUŞUYLA VİDEODAN ÇIKMA
         window.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeTheater();
+            if (e.key === 'Escape') closeTheater();
+        });
+
+        // OTOMATİK PDF UZANTI KONTROLÜ
+        document.querySelectorAll('.pdf-actions a, .pdf-row a').forEach(link => {
+            let href = link.getAttribute('href');
+            if (href && !href.endsWith('.pdf') && !href.startsWith('http')) {
+                link.setAttribute('href', href + '.pdf');
             }
         });
 
         // TEMA YÖNETİMİ
-        function toggleThemeMenu() {
-            document.getElementById('themeDropdown').classList.toggle('show');
-        }
+        function toggleThemeMenu() { document.getElementById('themeDropdown').classList.toggle('show'); }
 
         function setTheme(themeName) {
             document.documentElement.setAttribute('data-theme', themeName);
@@ -726,10 +716,7 @@
         }
         loadTheme();
 
-        // AKORDEON AÇ/KAPA
-        function toggleAccordion(id) {
-            document.getElementById(id).classList.toggle('show');
-        }
+        function toggleAccordion(id) { document.getElementById(id).classList.toggle('show'); }
 
         // SEKME GEÇİŞLERİ
         function showSection(sectionName) {
@@ -751,14 +738,21 @@
             }
         }
 
-        // KULLANICI GİRİŞİ
+        // KULLANICI GİRİŞİ & ADMİN KONTROLÜ
         function checkUser() {
             const user = localStorage.getItem('aksiyon_user');
+            const grade = localStorage.getItem('aksiyon_grade');
+
             if (user) {
                 document.getElementById('authModal').classList.add('hidden');
                 document.getElementById('displayUsername').innerText = user;
                 document.getElementById('welcomeName').innerText = user;
                 document.getElementById('userAvatar').innerText = user.charAt(0).toUpperCase();
+
+                // ADMIN KONTROLÜ
+                if (user === 'admin190374') {
+                    document.getElementById('adminMenuLink').style.display = 'block';
+                }
             } else {
                 document.getElementById('authModal').classList.remove('hidden');
             }
@@ -766,18 +760,20 @@
 
         function loginUser() {
             const user = document.getElementById('usernameInput').value.trim();
+            const grade = document.getElementById('gradeSelect').value;
             if (!user) return;
             localStorage.setItem('aksiyon_user', user);
-            localStorage.setItem('aksiyon_grade', '6. Sınıf');
+            localStorage.setItem('aksiyon_grade', grade);
             checkUser();
         }
 
         function logoutUser() {
             localStorage.removeItem('aksiyon_user');
+            localStorage.removeItem('aksiyon_grade');
             location.reload();
         }
 
-        // GERİ BİLDİRİM
+        // GERİ BİLDİRİM SİSTEMİ
         function sendFeedback() {
             const title = document.getElementById('fbTitle').value.trim();
             const content = document.getElementById('fbContent').value.trim();
@@ -804,7 +800,7 @@
                     <h4 style="color: var(--primary);">${fb.title}</h4>
                     <p>${fb.content}</p>
                 </div>
-            `).join('') || '<p>Henüz geri bildirim yok.</p>';
+            `).join('') || '<p style="color: var(--text-sub);">Henüz geri bildirim yok.</p>';
         }
 
         checkUser();
