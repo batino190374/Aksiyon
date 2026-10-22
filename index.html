@@ -349,6 +349,98 @@
             gap: 10px;
         }
 
+        /* VİDEO LİSTELEME */
+        .unit-group {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .unit-group h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .sub-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .sub-topic-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-thumb {
+            width: 100%;
+            height: 140px;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+        }
+
+        .video-info {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .video-info h4 {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .watch-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .watch-btn:hover {
+            background: var(--primary-hover);
+        }
+
         /* GERİ BİLDİRİM FORMU */
         .feedback-box {
             background: var(--bg-card);
@@ -396,8 +488,15 @@
 
         .hidden { display: none !important; }
     </style>
+    <script>
+        // Sayfa yüklenmeden hemen önce temayı uygulayarak parlama veya hata olmasını önlüyoruz
+        (function() {
+            const savedTheme = localStorage.getItem('aksiyon_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
-<body data-theme="dark">
+<body>
 
     <!-- GİRİŞ MODALI -->
     <div id="authModal" class="auth-overlay">
@@ -431,6 +530,9 @@
             <li class="nav-item active" onclick="showSection('home')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-house"></i><span>Ana Sayfa</span></div></a>
             </li>
+            <li class="nav-item" onclick="showSection('dersler')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-book-open"></i><span>Ders Videoları</span></div></a>
+            </li>
             <li class="nav-item" onclick="showSection('feedback')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-comment-dots"></i><span>Geri Bildirim</span></div></a>
             </li>
@@ -449,12 +551,11 @@
             <h2 id="headerTitle">6. Sınıf Maarif Modeli Portalı</h2>
             <div class="user-profile">
                 
-                <!-- TEMA MENÜSÜ BUTONU (HESABIN YANINDA) -->
+                <!-- TEMA MENÜSÜ BUTONU -->
                 <div class="theme-dropdown-container">
                     <button onclick="toggleThemeMenu()" class="theme-menu-btn">
                         <i class="fa-solid fa-palette"></i> <span>Tema</span>
                     </button>
-                    <!-- Açılır Tema Menüsü -->
                     <div id="themeDropdown" class="theme-menu-dropdown">
                         <div class="theme-option" onclick="setTheme('dark')"><i class="fa-solid fa-moon"></i> Koyu Mod</div>
                         <div class="theme-option" onclick="setTheme('light')"><i class="fa-solid fa-sun"></i> Açık Mod</div>
@@ -480,7 +581,73 @@
                 
                 <div class="card">
                     <h3><i class="fa-solid fa-circle-info"></i> Duyurular</h3>
-                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Yeni tema seçenekleri ve geri bildirim paneli sisteme eklendi! Sağ üstten temanı dilediğin gibi değiştirebilirsin.</p>
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Tema sorunları giderildi ve Açık Mod tamamen aktif hale getirildi!</p>
+                </div>
+            </div>
+
+            <!-- DERS VİDEOLARI BÖLÜMÜ -->
+            <div id="derslerSection" class="hidden">
+                <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
+                    <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Müfredat Ders Videoları (Tonguç)
+                </h2>
+
+                <!-- 1. MATEMATİK -->
+                <div class="unit-group">
+                    <h3><i class="fa-solid fa-calculator"></i> Matematik (Tüm Temalar)</h3>
+                    <div class="sub-topics">
+                        <span class="sub-topic-tag">Sayılar ve Nicelikler</span>
+                        <span class="sub-topic-tag">Veriden Olasılığa</span>
+                        <span class="sub-topic-tag">Geometrik Şekiller</span>
+                        <span class="sub-topic-tag">Cebirsel Düşünme</span>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                            <div class="video-info">
+                                <h4>6. Sınıf Matematik Konu Anlatımları</h4>
+                                <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. FEN BİLİMLERİ -->
+                <div class="unit-group">
+                    <h3><i class="fa-solid fa-flask"></i> Fen Bilimleri (Tüm Üniteler)</h3>
+                    <div class="sub-topics">
+                        <span class="sub-topic-tag">Güneş Sistemi ve Tutulmalar</span>
+                        <span class="sub-topic-tag">Kuvvet ve Hareket</span>
+                        <span class="sub-topic-tag">Canlılarda Sistemler</span>
+                        <span class="sub-topic-tag">Işığın Yansıması</span>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                            <div class="video-info">
+                                <h4>6. Sınıf Fen Bilimleri Konu Anlatımları</h4>
+                                <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. TÜRKÇE -->
+                <div class="unit-group">
+                    <h3><i class="fa-solid fa-book-open"></i> Türkçe (Tüm Temalar)</h3>
+                    <div class="sub-topics">
+                        <span class="sub-topic-tag">Dilimizin Zenginliği</span>
+                        <span class="sub-topic-tag">Bağımsızlık Yolu</span>
+                        <span class="sub-topic-tag">Farklı Dünyalar</span>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+                            <div class="video-info">
+                                <h4>6. Sınıf Türkçe Paragraf & Metinler</h4>
+                                <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -496,14 +663,12 @@
                 </div>
             </div>
 
-            <!-- ADMIN PANELİ (Sadece admin190374 ve 6. Sınıf) -->
+            <!-- ADMIN PANELİ -->
             <div id="adminSection" class="hidden">
                 <div class="card" style="border-color: #f59e0b;">
                     <h3><i class="fa-solid fa-shield-halved" style="color: #f59e0b;"></i> Admin Paneli - Geri Bildirimler</h3>
                     <p style="color: var(--text-sub); margin-bottom: 15px;">Kullanıcılardan gelen tüm geri bildirimler burada listelenir.</p>
-                    <div id="feedbackList" style="display: flex; flex-direction: column; gap: 10px;">
-                        <!-- Geri bildirimler buraya dolacak -->
-                    </div>
+                    <div id="feedbackList" style="display: flex; flex-direction: column; gap: 10px;"></div>
                 </div>
             </div>
 
@@ -523,13 +688,12 @@
     </div>
 
     <script>
-        // TEMA YÖNETİMİ VE MENÜ AÇ/KAPA
+        // TEMA YÖNETİMİ
         function toggleThemeMenu() {
             const dropdown = document.getElementById('themeDropdown');
             dropdown.classList.toggle('show');
         }
 
-        // Dışarı tıklayınca menüyü kapat
         window.onclick = function(event) {
             if (!event.target.closest('.theme-dropdown-container')) {
                 const dropdown = document.getElementById('themeDropdown');
@@ -540,18 +704,18 @@
         }
 
         function setTheme(themeName) {
-            document.body.setAttribute('data-theme', themeName);
+            document.documentElement.setAttribute('data-theme', themeName);
             localStorage.setItem('aksiyon_theme', themeName);
             document.getElementById('themeDropdown').classList.remove('show');
         }
 
         function loadTheme() {
             const savedTheme = localStorage.getItem('aksiyon_theme') || 'dark';
-            document.body.setAttribute('data-theme', savedTheme);
+            document.documentElement.setAttribute('data-theme', savedTheme);
         }
         loadTheme();
 
-        // SINIF UYARI KONTROLÜ (5, 7 ve 8 ler için kırmızı yazı)
+        // SINIF UYARI KONTROLÜ
         function checkGradeSelection() {
             const grade = document.getElementById('gradeSelect').value;
             const gradeError = document.getElementById('gradeError');
@@ -566,11 +730,13 @@
         // SEKME GEÇİŞLERİ
         function showSection(sectionName) {
             document.getElementById('homeSection').classList.add('hidden');
+            document.getElementById('derslerSection').classList.add('hidden');
             document.getElementById('feedbackSection').classList.add('hidden');
             document.getElementById('adminSection').classList.add('hidden');
             document.getElementById('comingSoonSection').classList.add('hidden');
 
             if (sectionName === 'home') document.getElementById('homeSection').classList.remove('hidden');
+            if (sectionName === 'dersler') document.getElementById('derslerSection').classList.remove('hidden');
             if (sectionName === 'feedback') document.getElementById('feedbackSection').classList.remove('hidden');
             if (sectionName === 'admin') {
                 document.getElementById('adminSection').classList.remove('hidden');
@@ -592,7 +758,6 @@
                 document.getElementById('displayGrade').innerText = grade;
                 document.getElementById('headerTitle').innerText = grade + " Maarif Modeli Portalı";
 
-                // Admin kontrolü (admin190374 ve 6. Sınıf ise)
                 if (user === 'admin190374' && grade === '6. Sınıf') {
                     document.getElementById('adminMenuLink').style.display = 'block';
                 }
@@ -654,7 +819,7 @@
             }
 
             listContainer.innerHTML = '';
-            feedbacks.forEach((fb, index) => {
+            feedbacks.forEach((fb) => {
                 const item = document.createElement('div');
                 item.style.background = 'var(--bg-dark)';
                 item.style.padding = '15px';
