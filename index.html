@@ -340,7 +340,7 @@
             gap: 10px;
         }
 
-        /* SAYAÇLAR VE WİDGETLAR */
+        /* WİDGETLAR VE SAYAÇLAR */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -418,7 +418,7 @@
         }
 
         .sub-topic-item {
-            padding: 10px 15px;
+            padding: 12px 15px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 6px;
@@ -463,7 +463,7 @@
         .btn-open { background: var(--primary); color: white; }
         .btn-print { background: var(--accent); color: white; }
 
-        /* AKSİYON AI BULANIK WİDGET */
+        /* AKSİYON AI WİDGET */
         .ai-widget-container {
             position: fixed;
             bottom: 30px;
@@ -632,13 +632,13 @@
                 <h1>Hoş Geldin, <span id="welcomeName">Öğrenci</span>! 👋</h1>
                 <p style="color: var(--text-sub); margin-top: 5px;">2026-2027 Türkiye Yüzyılı Maarif Modeli 6. Sınıf Portalına Hoş Geldin.</p>
                 
-                <!-- SAYAÇLAR VE DERSLER WİDGETI -->
+                <!-- HIZLI ERİŞİM WİDGETLARI -->
                 <div class="stats-grid">
                     <div class="stat-card" onclick="showSection('dersler')">
                         <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
                         <div class="stat-info">
                             <h4>Hızlı Erişim</h4>
-                            <span>Dersler Menüsü ➔</span>
+                            <span>Dersler & Canlı Yayınlar ➔</span>
                         </div>
                     </div>
                     <div class="stat-card" onclick="showSection('yaziliPdf')">
@@ -670,19 +670,20 @@
                 </h2>
                 <div class="card">
                     <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Güncelleme Notu</h3>
-                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 8px;">
-                        Hatalar düzeltildi
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 8px; line-height: 1.6;">
+                        • Hatalar düzeltildi<br>
+                        • Müfredat hataları düzeltildi
                     </p>
                 </div>
             </div>
 
-            <!-- DERS VİDEOLARI (ÜNİTE -> KONU -> VİDEO SİSTEMİ) -->
+            <!-- DERS VİDEOLARI & CANLI YAYINLAR -->
             <div id="derslerSection" class="hidden">
                 <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
-                    <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Ders Videoları ve Üniteler
+                    <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Ders Videoları ve Canlı Yayınlar
                 </h2>
 
-                <!-- FEN BİLİMLERİ SEÇİMİ -->
+                <!-- FEN BİLİMLERİ -->
                 <div class="accordion-header" onclick="toggleAccordion('fenAccordion')">
                     <span><i class="fa-solid fa-flask" style="color: var(--accent); margin-right: 10px;"></i> Fen Bilimleri</span>
                     <i class="fa-solid fa-chevron-down"></i>
@@ -690,53 +691,63 @@
                 <div id="fenAccordion" class="accordion-content">
                     <p style="color: var(--text-sub); margin-bottom: 10px; font-size: 0.9rem;">Ünite seçiniz:</p>
                     
-                    <!-- 1. Ünite -->
                     <div class="accordion-header" onclick="toggleAccordion('unite1')">
                         <span>1. Ünite: Güneş Sistemi ve Tutulmalar</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="unite1" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openVideoModal('Güneş Sistemi ve Gezegenler', 'https://www.youtube.com/@tonguc6')">
-                            <span>Konu 1: Güneş Sistemi ve Gezegenler</span>
-                            <i class="fa-solid fa-play" style="color: var(--primary);"></i>
+                        <div class="sub-topic-item" onclick="openVideoModal('Güneş Sistemi ve Gezegenler (Konu Anlatımı)', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş Sistemi ve Gezegenler</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openVideoModal('Güneş ve Ay Tutulmaları', 'https://www.youtube.com/@tonguc6')">
-                            <span>Konu 2: Güneş ve Ay Tutulmaları</span>
-                            <i class="fa-solid fa-play" style="color: var(--primary);"></i>
+                        <div class="sub-topic-item" onclick="openVideoModal('Güneş Sistemi Canlı Yayın Tekrarı', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-tower-broadcast" style="color: #ef4444; margin-right: 8px;"></i> Canlı Yayın: Güneş Sistemi Soru Çözümü</span>
+                            <span style="font-size: 0.8rem; background: rgba(239,68,68,0.2); color: #ef4444; padding: 2px 8px; border-radius: 4px;">Canlı Yayın</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openVideoModal('Güneş ve Ay Tutulmaları (Konu Anlatımı)', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş ve Ay Tutulmaları</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openVideoModal('Tutulmalar Canlı Yayın Tekrarı', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-tower-broadcast" style="color: #ef4444; margin-right: 8px;"></i> Canlı Yayın: Tutulmalar Genel Tekrar</span>
+                            <span style="font-size: 0.8rem; background: rgba(239,68,68,0.2); color: #ef4444; padding: 2px 8px; border-radius: 4px;">Canlı Yayın</span>
                         </div>
                     </div>
 
-                    <!-- 2. Ünite -->
                     <div class="accordion-header" onclick="toggleAccordion('unite2')">
                         <span>2. Ünite: Kuvvet ve Hareket</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="unite2" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openVideoModal('Bileşke Kuvvet', 'https://www.youtube.com/@tonguc6')">
-                            <span>Konu 1: Bileşke Kuvvet</span>
-                            <i class="fa-solid fa-play" style="color: var(--primary);"></i>
+                        <div class="sub-topic-item" onclick="openVideoModal('Bileşke Kuvvet (Konu Anlatımı)', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Bileşke Kuvvet</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openVideoModal('Sürat ve Sürat Hesaplamaları', 'https://www.youtube.com/@tonguc6')">
-                            <span>Konu 2: Sürat ve Sürat Hesaplamaları</span>
-                            <i class="fa-solid fa-play" style="color: var(--primary);"></i>
+                        <div class="sub-topic-item" onclick="openVideoModal('Kuvvet ve Hareket Canlı Yayın', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-tower-broadcast" style="color: #ef4444; margin-right: 8px;"></i> Canlı Yayın: Kuvvet Soru Kampı</span>
+                            <span style="font-size: 0.8rem; background: rgba(239,68,68,0.2); color: #ef4444; padding: 2px 8px; border-radius: 4px;">Canlı Yayın</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- MATEMATİK SEÇİMİ -->
+                <!-- MATEMATİK -->
                 <div class="accordion-header" onclick="toggleAccordion('matAccordion')">
                     <span><i class="fa-solid fa-calculator" style="color: var(--primary); margin-right: 10px;"></i> Matematik</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div id="matAccordion" class="accordion-content">
                     <div class="sub-topic-item" onclick="openVideoModal('Doğal Sayılarla İşlemler', 'https://www.youtube.com/@tonguc6')">
-                        <span>Konu: Doğal Sayılarla İşlemler</span>
-                        <i class="fa-solid fa-play" style="color: var(--primary);"></i>
+                        <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Doğal Sayılarla İşlemler</span>
+                        <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                    </div>
+                    <div class="sub-topic-item" onclick="openVideoModal('Matematik Canlı Yayın', 'https://www.youtube.com/@tonguc6')">
+                        <span><i class="fa-solid fa-tower-broadcast" style="color: #ef4444; margin-right: 8px;"></i> Canlı Yayın: Matematik Soru Çözümü</span>
+                        <span style="font-size: 0.8rem; background: rgba(239,68,68,0.2); color: #ef4444; padding: 2px 8px; border-radius: 4px;">Canlı Yayın</span>
                     </div>
                 </div>
             </div>
 
-            <!-- YAZILI PDF'LERİ BÖLÜMÜ (PDF AÇ VE YAZDIR) -->
+            <!-- YAZILI PDF'LERİ BÖLÜMÜ -->
             <div id="yaziliPdfSection" class="hidden">
                 <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
                     <i class="fa-solid fa-file-pdf" style="color: #ef4444;"></i> Yazılı Çalışma PDF Arşivi
@@ -748,8 +759,8 @@
                         <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ / Temel Eğitim Genel Müdürlüğü Uyumlu Soru ve Çözümleri</p>
                     </div>
                     <div class="pdf-actions">
-                        <a href="f218116597 (1).pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
-                        <button onclick="printPDF('f218116597 (1).pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
+                        <a href="fen-yazili.pdf.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                        <button onclick="printPDF('fen-yazili.pdf.pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
                     </div>
                 </div>
 
@@ -759,8 +770,8 @@
                         <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ / Temel Eğitim Genel Müdürlüğü Uyumlu Soru ve Çözümleri</p>
                     </div>
                     <div class="pdf-actions">
-                        <a href="4ad67757ef.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
-                        <button onclick="printPDF('4ad67757ef.pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
+                        <a href="sosyal-yazili.pdf.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                        <button onclick="printPDF('sosyal-yazili.pdf.pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
                     </div>
                 </div>
 
@@ -770,8 +781,8 @@
                         <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ / Temel Eğitim Genel Müdürlüğü Uyumlu Soru ve Çözümleri</p>
                     </div>
                     <div class="pdf-actions">
-                        <a href="6c9da9c178.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
-                        <button onclick="printPDF('6c9da9c178.pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
+                        <a href="din-yazili.pdf.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                        <button onclick="printPDF('din-yazili.pdf.pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
                     </div>
                 </div>
 
@@ -781,8 +792,8 @@
                         <p style="color: var(--text-sub); font-size: 0.85rem;">MEBİ / Temel Eğitim Genel Müdürlüğü Uyumlu Soru ve Çözümleri</p>
                     </div>
                     <div class="pdf-actions">
-                        <a href="7c5bae5582.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
-                        <button onclick="printPDF('7c5bae5582.pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
+                        <a href="turkce-yazili.pdf.pdf" target="_blank" class="btn-action btn-open"><i class="fa-solid fa-eye"></i> PDF Aç</a>
+                        <button onclick="printPDF('turkce-yazili.pdf.pdf')" class="btn-action btn-print"><i class="fa-solid fa-print"></i> Yazdır</button>
                     </div>
                 </div>
             </div>
@@ -830,7 +841,7 @@
         </footer>
     </div>
 
-    <!-- AKSİYON AI BULANIK WİDGET (YAKINDA) -->
+    <!-- AKSİYON AI WİDGET -->
     <div class="ai-widget-container">
         <div class="ai-blur-box">
             <i class="fa-solid fa-robot" style="font-size: 2rem; color: var(--primary);"></i>
@@ -879,18 +890,20 @@
         }
 
         // VİDEO YÖNLENDİRME
-        function openVideoModal(topicName, url) {
-            if(confirm("'" + topicName + "' konulu ders videosuna gitmek istiyor musun?")) {
+        function openVideoModal(title, url) {
+            if(confirm("'" + title + "' içeriğine gitmek istiyor musun?")) {
                 window.open(url, '_blank');
             }
         }
 
-        // PDF YAZDIRMA FONKSİYONU
+        // PDF YAZDIRMA
         function printPDF(pdfUrl) {
             const printWindow = window.open(pdfUrl, '_blank');
-            printWindow.load = function() {
-                printWindow.print();
-            };
+            if (printWindow) {
+                printWindow.onload = function() {
+                    printWindow.print();
+                };
+            }
         }
 
         // SINIF UYARI KONTROLÜ
