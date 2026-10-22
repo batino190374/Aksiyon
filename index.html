@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aksiyon - 2026-2027 Eğitim Platformu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --sidebar-bg: #111827;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent: #10b981;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border: #334155;
+            --sidebar-width: 260px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* GİRİŞ MODALI */
+        .auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .auth-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .auth-card p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .auth-input, .auth-select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            outline: none;
+        }
+
+        .auth-input:focus, .auth-select:focus {
+            border-color: var(--primary);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .auth-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* SABİT SOL MENÜ */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .logo-area {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 10px 0;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 22px;
+            color: var(--text-sub);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-item-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-item a:hover, .nav-item.active a {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+        }
+
+        .nav-item i {
+            font-size: 1.2rem;
+            min-width: 25px;
+        }
+
+        .badge-soon {
+            background: #f59e0b;
+            color: #0f172a;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* ANA İÇERİK YAPISI */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            height: 70px;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 30px;
+            flex: 1;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* VİDEO LİSTELEME */
+        .video-container {
+            margin-top: 25px;
+        }
+
+        .unit-group {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .unit-group h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .sub-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .sub-topic-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: #0f172a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-frame-wrapper {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            background: #000;
+        }
+
+        .video-frame-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 12px;
+            flex: 1;
+        }
+
+        .video-info h4 {
+            font-size: 0.95rem;
+            color: #fff;
+        }
+
+        /* AI CHAT */
+        .chat-box {
+            height: 220px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            padding: 10px;
+            border-radius: 8px;
+            background: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .chat-msg {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .chat-msg.user {
+            background: var(--primary);
+            margin-left: 20%;
+            text-align: right;
+        }
+
+        .chat-msg.ai {
+            background: var(--border);
+            margin-right: 20%;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        .chat-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input-group input {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: #0f172a;
+            color: #fff;
+            outline: none;
+        }
+
+        .chat-input-group button {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            background: var(--accent);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* YAKINDA MODAL */
+        .coming-soon-box {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .coming-soon-box i {
+            font-size: 4rem;
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+
+        .coming-soon-box h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-box p {
+            color: var(--text-sub);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- GİRİŞ MODALI -->
+    <div id="authModal" class="auth-overlay">
+        <div class="auth-card">
+            <i class="fa-solid fa-graduation-cap logo-icon" style="font-size: 3rem; margin-bottom: 15px;"></i>
+            <h2>Aksiyon Platformu</h2>
+            <p>Devam etmek için rumuzunuzu girin</p>
+            <input type="text" id="usernameInput" class="auth-input" placeholder="Rumuzunuz..." required>
+            <select id="gradeSelect" class="auth-select">
+                <option value="6. Sınıf">6. Sınıf (Aktif - Maarif Modeli)</option>
+                <option value="5. Sınıf">5. Sınıf (YAKINDA)</option>
+                <option value="7. Sınıf">7. Sınıf (YAKINDA)</option>
+                <option value="8. Sınıf">8. Sınıf (YAKINDA)</option>
+            </select>
+            <button onclick="loginUser()" class="auth-btn">Sisteme Giriş Yap 🚀</button>
+        </div>
+    </div>
+
+    <!-- SABİT SOL MENÜ -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+            <span class="logo-text">AKSİYON</span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active" onclick="showSection('home')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-house"></i><span>Ana Sayfa</span></div></a>
+            </li>
+            <li class="nav-item" onclick="showSection('home')">
+                <a href="#derslerbolumu"><div class="nav-item-content"><i class="fa-solid fa-book-open"></i><span>Ders Videoları</span></div></a>
+            </li>
+            <li class="nav-item" onclick="showSection('comingSoon')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-book"></i><span>Kitaplar</span></div><span class="badge-soon">YAKINDA</span></a>
+            </li>
+            <li class="nav-item" onclick="showSection('comingSoon')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-pen-to-square"></i><span>Sınavlar / MEBİ</span></div><span class="badge-soon">YAKINDA</span></a>
+            </li>
+            <li class="nav-item" onclick="showSection('comingSoon')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-calendar-days"></i><span>Çalışma Planı</span></div><span class="badge-soon">YAKINDA</span></a>
+            </li>
+            <li class="nav-item" onclick="showSection('comingSoon')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-robot"></i><span>Aksiyon AI</span></div><span class="badge-soon">YAKINDA</span></a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- ANA İÇERİK -->
+    <div class="main-wrapper">
+        <header>
+            <h2 id="headerTitle">6. Sınıf Maarif Modeli Portalı</h2>
+            <div class="user-profile">
+                <div class="avatar" id="userAvatar">?</div>
+                <div>
+                    <strong id="displayUsername">Kullanıcı</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-sub);" id="displayGrade">6. Sınıf</div>
+                </div>
+                <button onclick="logoutUser()" style="margin-left: 15px; background: transparent; border: 1px solid var(--border); color: #ef4444; padding: 5px 10px; border-radius: 6px; cursor: pointer;">Çıkış</button>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- ANA SAYFA -->
+            <div id="homeSection">
+                <h1>Hoş Geldin, <span id="welcomeName">Öğrenci</span>! 👋</h1>
+                <p style="color: var(--text-sub); margin-top: 5px;">2026-2027 Türkiye Yüzyılı Maarif Modeli 6. Sınıf Tüm Ders İçerikleri.</p>
+
+                <div class="grid-container">
+                    <!-- GERİ SAYIM SAYAÇ -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-hourglass-half"></i> Sınav & Tatil Sayacı</h3>
+                        <p style="margin: 12px 0; font-size: 0.95rem; font-weight: 500;" id="targetEventName">Sıradaki Hedef:</p>
+                        <div id="countdown" style="font-size: 1.4rem; font-weight: bold; color: var(--accent);">Yükleniyor...</div>
+                    </div>
+
+                    <!-- AKSİYON AI -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-robot"></i> Aksiyon AI Asistanı</h3>
+                        <div class="chat-box" id="chatBox">
+                            <div class="chat-msg ai">Aksiyon AI: Mesaj yazabilirsiniz.</div>
+                        </div>
+                        <div class="chat-input-group">
+                            <input type="text" id="chatInput" placeholder="Soru sor veya mesaj yaz..." onkeypress="handleKeyPress(event)">
+                            <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DERSLER VE GÖRSELLERDEKİ GERÇEK 6. SINIF KONULARI -->
+                <div id="derslerbolumu" class="video-container">
+                    <h2 style="margin: 30px 0 15px 0; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
+                        <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Müfredat Ders Videoları (Tonguç)
+                    </h2>
+
+                    <!-- 1. MATEMATİK -->
+                    <div class="unit-group">
+                        <h3><i class="fa-solid fa-calculator"></i> Matematik (Tüm Temalar)</h3>
+                        <div class="sub-topics">
+                            <span class="sub-topic-tag">Sayılar ve Nicelikler (1)</span>
+                            <span class="sub-topic-tag">Veriden Olasılığa</span>
+                            <span class="sub-topic-tag">Sayılar ve Nicelikler (2)</span>
+                            <span class="sub-topic-tag">İstatistiksel Araştırma Süreci</span>
+                            <span class="sub-topic-tag">Geometrik Şekiller</span>
+                            <span class="sub-topic-tag">İşlemlerle Cebirsel Düşünme</span>
+                            <span class="sub-topic-tag">Geometrik Nicelikler</span>
+                        </div>
+                        <div class="video-grid">
+                            <div class="video-card">
+                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
+                                <div class="video-info"><h4>Matematik Konu Anlatımları ve Soru Çözümleri</h4></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. FEN BİLİMLERİ -->
+                    <div class="unit-group">
+                        <h3><i class="fa-solid fa-flask"></i> Fen Bilimleri (Tüm Üniteler)</h3>
+                        <div class="sub-topics">
+                            <span class="sub-topic-tag">Güneş Sistemi ve Tutulmalar</span>
+                            <span class="sub-topic-tag">Kuvvetin Etkisinde Hareket</span>
+                            <span class="sub-topic-tag">Canlılarda Sistemler</span>
+                            <span class="sub-topic-tag">Işığın Yansıması ve Renkler</span>
+                            <span class="sub-topic-tag">Maddenin Ayırt Edici Özellikleri</span>
+                            <span class="sub-topic-tag">Elektriğin İletimi ve Direnç</span>
+                            <span class="sub-topic-tag">Sürdürülebilir Yaşam ve Etkileşim</span>
+                        </div>
+                        <div class="video-grid">
+                            <div class="video-card">
+                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
+                                <div class="video-info"><h4>Fen Bilimleri Deney ve Konu Anlatımları</h4></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. TÜRKÇE -->
+                    <div class="unit-group">
+                        <h3><i class="fa-solid fa-book-open"></i> Türkçe (Tüm Temalar)</h3>
+                        <div class="sub-topics">
+                            <span class="sub-topic-tag">Dilimizin Zenginliği</span>
+                            <span class="sub-topic-tag">Bağımsızlık Yolu</span>
+                            <span class="sub-topic-tag">Farklı Dünyalar</span>
+                            <span class="sub-topic-tag">İletişim ve Sosyal İlişkiler</span>
+                            <span class="sub-topic-tag">Bilim ve Teknoloji</span>
+                            <span class="sub-topic-tag">Lider Ruhlar</span>
+                        </div>
+                        <div class="video-grid">
+                            <div class="video-card">
+                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
+                                <div class="video-info"><h4>Türkçe Paragraf ve Metin İncelemeleri</h4></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. SOSYAL BİLGİLER -->
+                    <div class="unit-group">
+                        <h3><i class="fa-solid fa-globe"></i> Sosyal Bilgiler (Tüm Üniteler)</h3>
+                        <div class="sub-topics">
+                            <span class="sub-topic-tag">Birlikte Yaşamak</span>
+                            <span class="sub-topic-tag">Evimiz Dünya</span>
+                            <span class="sub-topic-tag">Ortak Mirasımız</span>
+                            <span class="sub-topic-tag">Yaşayan Demokrasimiz</span>
+                            <span class="sub-topic-tag">Hayatımızdaki Ekonomi</span>
+                            <span class="sub-topic-tag">Teknoloji ve Sosyal Bilimler</span>
+                        </div>
+                        <div class="video-grid">
+                            <div class="video-card">
+                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
+                                <div class="video-info"><h4>Sosyal Bilgiler Harita ve Konu Anlatımları</h4></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. DİN KÜLTÜRÜ -->
+                    <div class="unit-group">
+                        <h3><i class="fa-solid fa-mosque"></i> Din Kültürü ve Ahlak Bilgisi (Tüm Üniteler)</h3>
+                        <div class="sub-topics">
+                            <span class="sub-topic-tag">Peygamber ve İlahi Kitap İnancı</span>
+                            <span class="sub-topic-tag">Ramazan ve Oruç</span>
+                            <span class="sub-topic-tag">Ahlaki Davranışlar</span>
+                            <span class="sub-topic-tag">Peygamberliğinden Önce Hz. Muhammed</span>
+                            <span class="sub-topic-tag">Kültürümüzdeki Dinî Motifler</span>
+                        </div>
+                        <div class="video-grid">
+                            <div class="video-card">
+                                <div class="video-frame-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL33q9eO_3B0s4M_o75U0dC9pM5C9R" allowfullscreen></iframe></div>
+                                <div class="video-info"><h4>Din Kültürü Ünite Özetleri</h4></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- YAKINDA BÖLÜMÜ -->
+            <div id="comingSoonSection" class="hidden">
+                <div class="coming-soon-box">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <h2>YAKINDA...</h2>
+                    <p>Bu özellik henüz geliştirme aşamasındadır. Çok yakında hizmetinizde olacak!</p>
+                    <button onclick="showSection('home')" class="auth-btn" style="width: auto; margin-top: 20px; padding: 10px 25px;">
+                        <i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            Made by batino190374
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionName) {
+            const home = document.getElementById('homeSection');
+            const coming = document.getElementById('comingSoonSection');
+
+            if (sectionName === 'comingSoon') {
+                home.classList.add('hidden');
+                coming.classList.remove('hidden');
+            } else {
+                coming.classList.add('hidden');
+                home.classList.remove('hidden');
+            }
+        }
+
+        function checkUser() {
+            const savedUser = localStorage.getItem('aksiyon_user');
+            const savedGrade = localStorage.getItem('aksiyon_grade');
+
+            if (savedUser && savedGrade) {
+                document.getElementById('authModal').classList.add('hidden');
+                document.getElementById('displayUsername').innerText = savedUser;
+                document.getElementById('welcomeName').innerText = savedUser;
+                document.getElementById('userAvatar').innerText = savedUser.charAt(0).toUpperCase();
+                document.getElementById('displayGrade').innerText = savedGrade;
+                document.getElementById('headerTitle').innerText = savedGrade + " Maarif Modeli Portalı";
+            } else {
+                document.getElementById('authModal').classList.remove('hidden');
+            }
+        }
+
+        function loginUser() {
+            const nameInput = document.getElementById('usernameInput').value.trim();
+            const gradeInput = document.getElementById('gradeSelect').value;
+
+            if (nameInput) {
+                localStorage.setItem('aksiyon_user', nameInput);
+                localStorage.setItem('aksiyon_grade', gradeInput);
+                checkUser();
+            } else {
+                alert('Lütfen rumuzunuzu girin!');
+            }
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('aksiyon_user');
+            localStorage.removeItem('aksiyon_grade');
+            location.reload();
+        }
+
+        // SAYAÇ MANTIĞI
+        function updateTimer() {
+            const now = new Date();
+            const year = now.getFullYear();
+
+            const events = [
+                { name: "1. Dönem 1. Yazılı Sınavlarına Kalan Süre:", date: new Date(year, 9, 30, 17, 0, 0) },
+                { name: "1. Dönem Ara Tatili Başlangıcına Kalan Süre:", date: new Date(year, 10, 13, 17, 0, 0) },
+                { name: "1. Dönem Ara Tatili (Okulların Açılmasına Kalan Süre):", date: new Date(year, 10, 23, 8, 0, 0) },
+                { name: "1. Dönem 2. Yazılı Sınavlarına Kalan Süre:", date: new Date(year, 11, 28, 17, 0, 0) },
+                { name: "Yarıyıl (Sömestr) Tatiline Kalan Süre:", date: new Date(year, 0, 22, 17, 0, 0) },
+                { name: "Sömestr Tatili (Okulların Açılmasına Kalan Süre):", date: new Date(year, 1, 8, 8, 0, 0) },
+                { name: "2. Dönem 1. Yazılı Sınavlarına Kalan Süre:", date: new Date(year, 2, 29, 17, 0, 0) },
+                { name: "2. Dönem Ara Tatiline Kalan Süre:", date: new Date(year, 3, 10, 17, 0, 0) },
+                { name: "2. Dönem Ara Tatili (Okulların Açılmasına Kalan Süre):", date: new Date(year, 3, 20, 8, 0, 0) },
+                { name: "2. Dönem 2. Yazılı Sınavlarına Kalan Süre:", date: new Date(year, 4, 31, 17, 0, 0) },
+                { name: "Yaz Tatili (Okulların Kapanmasına Kalan Süre):", date: new Date(year, 5, 18, 17, 0, 0) }
+            ];
+
+            let activeEvent = events.find(e => e.date > now);
+            if (!activeEvent) {
+                activeEvent = { name: "Yeni Eğitim Yılı Açılışına Kalan Süre:", date: new Date(year + 1, 8, 15, 8, 0, 0) };
+            }
+
+            const diff = activeEvent.date - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('targetEventName').innerText = activeEvent.name;
+            document.getElementById('countdown').innerText = `${days} Gün ${hours} Saat ${minutes} Dk ${seconds} Sn`;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const chatBox = document.getElementById('chatBox');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg user';
+            userMsg.innerText = text;
+            chatBox.appendChild(userMsg);
+
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-msg ai';
+                aiMsg.innerText = "YAKINDA GÜNCELLEME GELECEK";
+                chatBox.appendChild(aiMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 500);
+        }
+
+        checkUser();
+    </script>
+</body>
+</html>
