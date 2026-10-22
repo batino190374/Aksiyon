@@ -6,8 +6,8 @@
     <title>Aksiyon - Eğitim Platformu</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* TEMA RENK PALETLERİ */
-        :root {
+        /* TEMA RENK PALETLERİ (9 FARKLI TEMA) */
+        :root, [data-theme="dark"] {
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
             --sidebar-bg: #111827;
@@ -54,6 +54,66 @@
             --text-main: #f5f3ff;
             --text-sub: #c4b5fd;
             --border: #3b2865;
+        }
+
+        [data-theme="ocean"] {
+            --bg-dark: #0a192f;
+            --bg-card: #112240;
+            --sidebar-bg: #020c1b;
+            --primary: #64ffda;
+            --primary-hover: #4cd6b2;
+            --accent: #00b4d8;
+            --text-main: #e6f1ff;
+            --text-sub: #8892b0;
+            --border: #233554;
+        }
+
+        [data-theme="sunset"] {
+            --bg-dark: #1f1113;
+            --bg-card: #2d191e;
+            --sidebar-bg: #140a0c;
+            --primary: #f97316;
+            --primary-hover: #ea580c;
+            --accent: #ef4444;
+            --text-main: #fff1f2;
+            --text-sub: #fca5a5;
+            --border: #4c282e;
+        }
+
+        [data-theme="midnight"] {
+            --bg-dark: #030712;
+            --bg-card: #111827;
+            --sidebar-bg: #000000;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent: #38bdf8;
+            --text-main: #f9fafb;
+            --text-sub: #9ca3af;
+            --border: #1f2937;
+        }
+
+        [data-theme="espresso"] {
+            --bg-dark: #1c1917;
+            --bg-card: #292524;
+            --sidebar-bg: #141210;
+            --primary: #d97706;
+            --primary-hover: #b45309;
+            --accent: #f59e0b;
+            --text-main: #fafaf9;
+            --text-sub: #a8a29e;
+            --border: #44403c;
+        }
+
+        [data-theme="aurora"] {
+            --bg-dark: #092026;
+            --bg-card: #0f343d;
+            --sidebar-bg: #051418;
+            --primary: #14b8a6;
+            --primary-hover: #0d9488;
+            --accent: #06b6d4;
+            --text-main: #f0fdfa;
+            --text-sub: #5eead4;
+            --border: #155e75;
         }
 
         * {
@@ -141,7 +201,7 @@
             border-radius: 8px;
             border: none;
             background: var(--primary);
-            color: white;
+            color: #000;
             font-weight: bold;
             font-size: 1rem;
             cursor: pointer;
@@ -208,7 +268,7 @@
         }
 
         .nav-item a:hover, .nav-item.active a {
-            background-color: rgba(59, 130, 246, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             color: var(--primary);
             border-left: 4px solid var(--primary);
         }
@@ -250,7 +310,7 @@
             height: 40px;
             border-radius: 50%;
             background: var(--primary);
-            color: #fff;
+            color: #000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -287,12 +347,13 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            width: 200px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 220px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             display: none;
             flex-direction: column;
             z-index: 1000;
-            overflow: hidden;
+            max-height: 350px;
+            overflow-y: auto;
         }
 
         .theme-menu-dropdown.show {
@@ -315,7 +376,7 @@
         }
 
         .theme-option:hover {
-            background: rgba(59, 130, 246, 0.15);
+            background: rgba(255, 255, 255, 0.1);
             color: var(--primary);
         }
 
@@ -366,7 +427,7 @@
             width: 50px;
             height: 50px;
             border-radius: 10px;
-            background: rgba(59, 130, 246, 0.15);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--primary);
             display: flex;
             align-items: center;
@@ -407,7 +468,7 @@
         .accordion-content {
             display: none;
             padding: 15px 20px;
-            background: rgba(0,0,0,0.1);
+            background: rgba(0,0,0,0.15);
             border-radius: 0 0 8px 8px;
             border: 1px solid var(--border);
             border-top: none;
@@ -429,7 +490,7 @@
             align-items: center;
         }
         .sub-topic-item:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--primary);
         }
 
@@ -460,8 +521,8 @@
             align-items: center;
             gap: 6px;
         }
-        .btn-open { background: var(--primary); color: white; }
-        .btn-print { background: var(--accent); color: white; }
+        .btn-open { background: var(--primary); color: #000; }
+        .btn-print { background: var(--accent); color: #000; }
 
         /* AKSİYON AI WİDGET */
         .ai-widget-container {
@@ -490,7 +551,7 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             display: flex; align-items: center; justify-content: center;
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(0, 0, 0, 0.4);
             z-index: 100;
         }
         .ai-soon-tag {
@@ -526,7 +587,7 @@
         .feedback-textarea { height: 120px; resize: vertical; }
         .feedback-btn {
             background: var(--accent);
-            color: white; border: none; padding: 10px 20px;
+            color: #000; border: none; padding: 10px 20px;
             border-radius: 8px; font-weight: bold; cursor: pointer;
         }
 
@@ -604,7 +665,7 @@
             <h2 id="headerTitle">6. Sınıf Maarif Modeli Portalı</h2>
             <div class="user-profile">
                 
-                <!-- TEMA MENÜSÜ -->
+                <!-- TEMA MENÜSÜ (9 ADET TEMA) -->
                 <div class="theme-dropdown-container">
                     <button onclick="toggleThemeMenu()" class="theme-menu-btn">
                         <i class="fa-solid fa-palette"></i> <span>Tema</span>
@@ -614,6 +675,11 @@
                         <div class="theme-option" onclick="setTheme('light')"><i class="fa-solid fa-sun"></i> Açık Mod</div>
                         <div class="theme-option" onclick="setTheme('emerald')"><i class="fa-solid fa-leaf"></i> Zümrüt Yeşili</div>
                         <div class="theme-option" onclick="setTheme('cyberpunk')"><i class="fa-solid fa-bolt"></i> Cyberpunk Mor</div>
+                        <div class="theme-option" onclick="setTheme('ocean')"><i class="fa-solid fa-water"></i> Aksiyonders Mavi</div>
+                        <div class="theme-option" onclick="setTheme('sunset')"><i class="fa-solid fa-sun-plant-wilt"></i> Gün Batımı</div>
+                        <div class="theme-option" onclick="setTheme('midnight')"><i class="fa-solid fa-star"></i> Gece Yarısı</div>
+                        <div class="theme-option" onclick="setTheme('espresso')"><i class="fa-solid fa-mug-hot"></i> Mat Kahve</div>
+                        <div class="theme-option" onclick="setTheme('aurora')"><i class="fa-solid fa-compass"></i> Kutup Işıkları</div>
                     </div>
                 </div>
 
@@ -657,9 +723,10 @@
                     </div>
                 </div>
 
-                <div class="card" onclick="showSection('duyurular')" style="cursor: pointer;">
-                    <h3><i class="fa-solid fa-circle-info"></i> Bilgilendirme (Duyurulara Git ➔)</h3>
-                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Hatalar düzeltildi ve yeni sürüm yayınlandı.</p>
+                <!-- BİLGİLENDİRME KUTUSU (TKLANINCA DUYURULARA GİDER) -->
+                <div class="card" onclick="showSection('duyurular')" style="cursor: pointer; transition: transform 0.2s ease;">
+                    <h3><i class="fa-solid fa-circle-info"></i> Bilgilendirme (Duyurulara Geç ➔)</h3>
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Sürüm V5.1.0 yayınlandı! Müfredat güncellendi ve yeni temalar eklendi.</p>
                 </div>
             </div>
 
@@ -669,10 +736,12 @@
                     <i class="fa-solid fa-bullhorn" style="color: var(--primary);"></i> Duyurular
                 </h2>
                 <div class="card">
-                    <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Sürüm v5.0</h3>
+                    <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Sürüm V5.1.0 Güncelleme Notları</h3>
                     <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 8px; line-height: 1.6;">
-                        • Hatalar düzeltildi ve yeni sürüm yayınlandı.<br>
-                        • Matematik ve Fen ünite menüleri düzenlendi.
+                        • Müfredat yenilendi, yanlış üniteler tamamen kaldırıldı.<br>
+                        • Ana ekrandan duyuru bölümüne geçme tuşu/kartı eklendi.<br>
+                        • Sürüm V5.1.0 olarak güncellendi.<br>
+                        • Yeni 5 harika tema eklenerek toplam tema sayısı 9'a çıkarıldı.
                     </p>
                 </div>
             </div>
@@ -698,30 +767,30 @@
                     <div id="fenUnite1" class="accordion-content">
                         <div class="sub-topic-item" onclick="openVideoModal('Güneş Sistemi ve Gezegenler (Konu Anlatımı)', 'https://www.youtube.com/@tonguc6')">
                             <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş Sistemi ve Gezegenler</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                         <div class="sub-topic-item" onclick="openVideoModal('Güneş Sistemi Video Tekrarı', 'https://www.youtube.com/@tonguc6')">
                             <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Video: Güneş Sistemi Soru Çözümü</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                         <div class="sub-topic-item" onclick="openVideoModal('Güneş ve Ay Tutulmaları (Konu Anlatımı)', 'https://www.youtube.com/@tonguc6')">
                             <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş ve Ay Tutulmaları</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                     </div>
 
                     <div class="accordion-header" onclick="toggleAccordion('fenUnite2')">
-                        <span>2. Ünite: Vücudumuzdaki Sistemler</span>
+                        <span>2. Ünite: Kuvvet ve Hareket</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div id="fenUnite2" class="accordion-content">
-                        <div class="sub-topic-item" onclick="openVideoModal('Destek ve Hareket Sistemi', 'https://www.youtube.com/@tonguc6')">
-                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Destek ve Hareket Sistemi</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        <div class="sub-topic-item" onclick="openVideoModal('Bileşke Kuvvet', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Bileşke Kuvvet</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
-                        <div class="sub-topic-item" onclick="openVideoModal('Sindirim Sistemi', 'https://www.youtube.com/@tonguc6')">
-                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Sindirim Sistemi</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        <div class="sub-topic-item" onclick="openVideoModal('Dengelenmiş ve Dengelenmemiş Kuvvetler', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Dengelenmiş ve Dengelenmemiş Kuvvetler</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                     </div>
                 </div>
@@ -741,16 +810,16 @@
                     </div>
                     <div id="matUnite1" class="accordion-content">
                         <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Çarpanlar ve Katlar', 'https://www.youtube.com/live/82XOZvbMPfY?si=4lpL6OsoQy2Oi1xk')">
-                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Çarpanlar ve Katlar (6MAT1)[cite: 82]</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Çarpanlar ve Katlar (6MAT1)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                         <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Asal Sayılar ve Çarpanlar', 'https://www.youtube.com/live/BfPRmu8eE9Y?si=wnHdSygWJPLbV80F')">
-                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Asal Sayılar ve Asal Çarpanlar (6MAT3)[cite: 79]</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Asal Sayılar ve Asal Çarpanlar (6MAT3)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                         <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Ortak Kat ve Bölen', 'https://www.youtube.com/live/9U5n0ejPnxM?si=Xud-oO0At-FwO0ex')">
-                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ortak Katlar ve Ortak Bölenler (6MAT4)[cite: 81]</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ortak Katlar ve Ortak Bölenler (6MAT4)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                     </div>
 
@@ -761,8 +830,8 @@
                     </div>
                     <div id="matUnite2" class="accordion-content">
                         <div class="sub-topic-item" onclick="openVideoModal('2. Ünite: Verilerden Olasılığa - Olasılık', 'https://youtu.be/W2h_V590LQs?si=OJOr4g_jTO_pePFM')">
-                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Olasılık (6MAT5)[cite: 80]</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Olasılık (6MAT5)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                     </div>
 
@@ -773,8 +842,8 @@
                     </div>
                     <div id="matUnite3" class="accordion-content">
                         <div class="sub-topic-item" onclick="openVideoModal('3. Ünite: Sayılar ve Nicelikler 2 - Ondalık Gösterim', 'https://www.youtube.com/live/9Un7og2Bg8A?si=AG8pWamCOlzWf8XS')">
-                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ondalık Gösterim (6MAT6)[cite: 83]</span>
-                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ondalık Gösterim (6MAT6)</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                     </div>
                 </div>
@@ -956,7 +1025,7 @@
             }
         }
 
-        // SEKME GEÇİŞLERİ
+        // SEKME GEÇİŞLERİ VE AKTİF BUTON VURGUSU
         function showSection(sectionName) {
             document.getElementById('homeSection').classList.add('hidden');
             document.getElementById('duyurularSection').classList.add('hidden');
@@ -966,14 +1035,36 @@
             document.getElementById('feedbackSection').classList.add('hidden');
             document.getElementById('adminSection').classList.add('hidden');
 
-            if (sectionName === 'home') document.getElementById('homeSection').classList.remove('hidden');
-            if (sectionName === 'duyurular') document.getElementById('duyurularSection').classList.remove('hidden');
-            if (sectionName === 'dersler') document.getElementById('derslerSection').classList.remove('hidden');
-            if (sectionName === 'yaziliPdf') document.getElementById('yaziliPdfSection').classList.remove('hidden');
-            if (sectionName === 'kitaplar') document.getElementById('kitaplarSection').classList.remove('hidden');
-            if (sectionName === 'feedback') document.getElementById('feedbackSection').classList.remove('hidden');
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+
+            if (sectionName === 'home') {
+                document.getElementById('homeSection').classList.remove('hidden');
+                if(navItems[0]) navItems[0].classList.add('active');
+            }
+            if (sectionName === 'duyurular') {
+                document.getElementById('duyurularSection').classList.remove('hidden');
+                if(navItems[1]) navItems[1].classList.add('active');
+            }
+            if (sectionName === 'dersler') {
+                document.getElementById('derslerSection').classList.remove('hidden');
+                if(navItems[2]) navItems[2].classList.add('active');
+            }
+            if (sectionName === 'yaziliPdf') {
+                document.getElementById('yaziliPdfSection').classList.remove('hidden');
+                if(navItems[3]) navItems[3].classList.add('active');
+            }
+            if (sectionName === 'kitaplar') {
+                document.getElementById('kitaplarSection').classList.remove('hidden');
+                if(navItems[4]) navItems[4].classList.add('active');
+            }
+            if (sectionName === 'feedback') {
+                document.getElementById('feedbackSection').classList.remove('hidden');
+                if(navItems[5]) navItems[5].classList.add('active');
+            }
             if (sectionName === 'admin') {
                 document.getElementById('adminSection').classList.remove('hidden');
+                if(navItems[6]) navItems[6].classList.add('active');
                 loadFeedbacks();
             }
         }
