@@ -657,9 +657,9 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3><i class="fa-solid fa-circle-info"></i> Bilgilendirme</h3>
-                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Hatalar düzeltildi.</p>
+                <div class="card" onclick="showSection('duyurular')" style="cursor: pointer;">
+                    <h3><i class="fa-solid fa-circle-info"></i> Bilgilendirme (Duyurulara Git ➔)</h3>
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Hatalar düzeltildi ve yeni sürüm yayınlandı.</p>
                 </div>
             </div>
 
@@ -669,10 +669,10 @@
                     <i class="fa-solid fa-bullhorn" style="color: var(--primary);"></i> Duyurular
                 </h2>
                 <div class="card">
-                    <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Güncelleme Notu</h3>
+                    <h3><i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Sürüm v5.0</h3>
                     <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 8px; line-height: 1.6;">
-                        • Hatalar düzeltildi<br>
-                        • Müfredat hataları düzeltildi
+                        • Hatalar düzeltildi ve yeni sürüm yayınlandı.<br>
+                        • Matematik ve Fen ünite menüleri düzenlendi.
                     </p>
                 </div>
             </div>
@@ -691,11 +691,11 @@
                 <div id="fenAccordion" class="accordion-content">
                     <p style="color: var(--text-sub); margin-bottom: 10px; font-size: 0.9rem;">Ünite seçiniz:</p>
                     
-                    <div class="accordion-header" onclick="toggleAccordion('unite1')">
+                    <div class="accordion-header" onclick="toggleAccordion('fenUnite1')">
                         <span>1. Ünite: Güneş Sistemi ve Tutulmalar</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
-                    <div id="unite1" class="accordion-content">
+                    <div id="fenUnite1" class="accordion-content">
                         <div class="sub-topic-item" onclick="openVideoModal('Güneş Sistemi ve Gezegenler (Konu Anlatımı)', 'https://www.youtube.com/@tonguc6')">
                             <span><i class="fa-solid fa-play-circle" style="color: var(--primary); margin-right: 8px;"></i> Konu Anlatımı: Güneş Sistemi ve Gezegenler</span>
                             <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
@@ -709,33 +709,73 @@
                             <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
                         </div>
                     </div>
+
+                    <div class="accordion-header" onclick="toggleAccordion('fenUnite2')">
+                        <span>2. Ünite: Vücudumuzdaki Sistemler</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div id="fenUnite2" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openVideoModal('Destek ve Hareket Sistemi', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Destek ve Hareket Sistemi</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openVideoModal('Sindirim Sistemi', 'https://www.youtube.com/@tonguc6')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Sindirim Sistemi</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- MATEMATİK (GÜNCELLENEN VİDEOLAR VE LİNKLER) -->
+                <!-- MATEMATİK (AYRIŞTIRILMIŞ ÜNİTE MENÜLERİ) -->
                 <div class="accordion-header" onclick="toggleAccordion('matAccordion')">
                     <span><i class="fa-solid fa-calculator" style="color: var(--primary); margin-right: 10px;"></i> Matematik</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div id="matAccordion" class="accordion-content">
-                    <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Çarpanlar ve Katlar', 'https://www.youtube.com/live/82XOZvbMPfY?si=4lpL6OsoQy2Oi1xk')">
-                        <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> 1. Ünite: Çarpanlar ve Katlar (6MAT1)</span>
-                        <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                    <p style="color: var(--text-sub); margin-bottom: 10px; font-size: 0.9rem;">Ünite seçiniz:</p>
+
+                    <!-- MATEMATİK 1. ÜNİTE -->
+                    <div class="accordion-header" onclick="toggleAccordion('matUnite1')">
+                        <span>1. Ünite: Sayılar ve Nicelikler</span>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </div>
-                    <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Asal Sayılar ve Çarpanlar', 'https://www.youtube.com/live/BfPRmu8eE9Y?si=wnHdSygWJPLbV80F')">
-                        <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Asal Sayılar ve Asal Çarpanlar (6MAT3)</span>
-                        <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                    <div id="matUnite1" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Çarpanlar ve Katlar', 'https://www.youtube.com/live/82XOZvbMPfY?si=4lpL6OsoQy2Oi1xk')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Çarpanlar ve Katlar (6MAT1)[cite: 82]</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Asal Sayılar ve Çarpanlar', 'https://www.youtube.com/live/BfPRmu8eE9Y?si=wnHdSygWJPLbV80F')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Asal Sayılar ve Asal Çarpanlar (6MAT3)[cite: 79]</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
+                        <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Ortak Kat ve Bölen', 'https://www.youtube.com/live/9U5n0ejPnxM?si=Xud-oO0At-FwO0ex')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ortak Katlar ve Ortak Bölenler (6MAT4)[cite: 81]</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
                     </div>
-                    <div class="sub-topic-item" onclick="openVideoModal('1. Ünite: Sayılar ve Nicelikler - Ortak Kat ve Bölen', 'https://www.youtube.com/live/9U5n0ejPnxM?si=Xud-oO0At-FwO0ex')">
-                        <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ortak Katlar ve Ortak Bölenler (6MAT4)</span>
-                        <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+
+                    <!-- MATEMATİK 2. ÜNİTE -->
+                    <div class="accordion-header" onclick="toggleAccordion('matUnite2')">
+                        <span>2. Ünite: Verilerden Olasılığa</span>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </div>
-                    <div class="sub-topic-item" onclick="openVideoModal('2. Ünite: Verilerden Olasılığa - Olasılık', 'https://youtu.be/W2h_V590LQs?si=OJOr4g_jTO_pePFM')">
-                        <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Olasılık (6MAT5)</span>
-                        <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                    <div id="matUnite2" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openVideoModal('2. Ünite: Verilerden Olasılığa - Olasılık', 'https://youtu.be/W2h_V590LQs?si=OJOr4g_jTO_pePFM')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Olasılık (6MAT5)[cite: 80]</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
                     </div>
-                    <div class="sub-topic-item" onclick="openVideoModal('3. Ünite: Sayılar ve Nicelikler 2 - Ondalık Gösterim', 'https://www.youtube.com/live/9Un7og2Bg8A?si=AG8pWamCOlzWf8XS')">
-                        <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ondalık Gösterim (6MAT6)</span>
-                        <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+
+                    <!-- MATEMATİK 3. ÜNİTE -->
+                    <div class="accordion-header" onclick="toggleAccordion('matUnite3')">
+                        <span>3. Ünite: Sayılar ve Nicelikler 2</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div id="matUnite3" class="accordion-content">
+                        <div class="sub-topic-item" onclick="openVideoModal('3. Ünite: Sayılar ve Nicelikler 2 - Ondalık Gösterim', 'https://www.youtube.com/live/9Un7og2Bg8A?si=AG8pWamCOlzWf8XS')">
+                            <span><i class="fa-solid fa-video" style="color: var(--primary); margin-right: 8px;"></i> Ondalık Gösterim (6MAT6)[cite: 83]</span>
+                            <span style="font-size: 0.8rem; background: rgba(59,130,246,0.2); padding: 2px 8px; border-radius: 4px;">Video</span>
+                        </div>
                     </div>
                 </div>
 
