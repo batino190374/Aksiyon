@@ -218,15 +218,6 @@
             min-width: 25px;
         }
 
-        .badge-soon {
-            background: #f59e0b;
-            color: #0f172a;
-            font-size: 0.65rem;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
         /* ANA İÇERİK YAPISI */
         .main-wrapper {
             margin-left: var(--sidebar-width);
@@ -349,7 +340,7 @@
             gap: 10px;
         }
 
-        /* VİDEO LİSTELEME */
+        /* VİDEO & KİTAP KARTLARI */
         .unit-group {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -441,6 +432,13 @@
             background: var(--primary-hover);
         }
 
+        .pdf-btn {
+            background: var(--accent);
+        }
+        .pdf-btn:hover {
+            opacity: 0.9;
+        }
+
         /* GERİ BİLDİRİM FORMU */
         .feedback-box {
             background: var(--bg-card);
@@ -489,7 +487,6 @@
         .hidden { display: none !important; }
     </style>
     <script>
-        // Sayfa yüklenmeden hemen önce temayı uygulayarak parlama veya hata olmasını önlüyoruz
         (function() {
             const savedTheme = localStorage.getItem('aksiyon_theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
@@ -530,17 +527,20 @@
             <li class="nav-item active" onclick="showSection('home')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-house"></i><span>Ana Sayfa</span></div></a>
             </li>
+            <li class="nav-item" onclick="showSection('duyurular')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-bullhorn"></i><span>Duyurular</span></div></a>
+            </li>
             <li class="nav-item" onclick="showSection('dersler')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-book-open"></i><span>Ders Videoları</span></div></a>
+            </li>
+            <li class="nav-item" onclick="showSection('kitaplar')">
+                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-book"></i><span>Kitaplar & PDF</span></div></a>
             </li>
             <li class="nav-item" onclick="showSection('feedback')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-comment-dots"></i><span>Geri Bildirim</span></div></a>
             </li>
             <li class="nav-item" id="adminMenuLink" style="display: none;" onclick="showSection('admin')">
                 <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-shield-halved" style="color: #f59e0b;"></i><span>Admin Paneli</span></div></a>
-            </li>
-            <li class="nav-item" onclick="showSection('comingSoon')">
-                <a href="javascript:void(0)"><div class="nav-item-content"><i class="fa-solid fa-book"></i><span>Kitaplar</span></div><span class="badge-soon">YAKINDA</span></a>
             </li>
         </ul>
     </aside>
@@ -580,264 +580,25 @@
                 <p style="color: var(--text-sub); margin-top: 5px;">2026-2027 Türkiye Yüzyılı Maarif Modeli 6. Sınıf Portalına Hoş Geldin.</p>
                 
                 <div class="card">
-                    <h3><i class="fa-solid fa-circle-info"></i> Duyurular</h3>
-                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Tema sorunları giderildi ve Açık Mod tamamen aktif hale getirildi!</p>
+                    <h3><i class="fa-solid fa-circle-info"></i> Güncel Duyurular</h3>
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 5px;">Kitap PDF'leri bölümü (Matematik ve Fen) ve özel duyurular sekmesi sisteme başarıyla eklendi!</p>
+                </div>
+            </div>
+
+            <!-- DUYURULAR BÖLÜMÜ -->
+            <div id="duyurularSection" class="hidden">
+                <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
+                    <i class="fa-solid fa-bullhorn" style="color: var(--primary);"></i> Duyurular ve Yenilikler
+                </h2>
+                <div class="card">
+                    <h3><i class="fa-solid fa-star" style="color: #f59e0b;"></i> Sürüm 1.2 Yayınlandı!</h3>
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 8px;">
+                        • Matematik ve Fen Bilimleri PDF kitapları sisteme eklendi.<br>
+                        • Açık Mod, Zümrüt Yeşili ve Cyberpunk tema seçenekleri aktif edildi.<br>
+                        • Geri bildirim ve şifreli giriş altyapısı güçlendirildi.
+                    </p>
                 </div>
             </div>
 
             <!-- DERS VİDEOLARI BÖLÜMÜ -->
             <div id="derslerSection" class="hidden">
-                <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
-                    <i class="fa-solid fa-video" style="color: var(--primary);"></i> 6. Sınıf Müfredat Ders Videoları (Tonguç)
-                </h2>
-
-                <!-- 1. MATEMATİK -->
-                <div class="unit-group">
-                    <h3><i class="fa-solid fa-calculator"></i> Matematik (Tüm Temalar)</h3>
-                    <div class="sub-topics">
-                        <span class="sub-topic-tag">Sayılar ve Nicelikler</span>
-                        <span class="sub-topic-tag">Veriden Olasılığa</span>
-                        <span class="sub-topic-tag">Geometrik Şekiller</span>
-                        <span class="sub-topic-tag">Cebirsel Düşünme</span>
-                    </div>
-                    <div class="video-grid">
-                        <div class="video-card">
-                            <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>6. Sınıf Matematik Konu Anlatımları</h4>
-                                <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. FEN BİLİMLERİ -->
-                <div class="unit-group">
-                    <h3><i class="fa-solid fa-flask"></i> Fen Bilimleri (Tüm Üniteler)</h3>
-                    <div class="sub-topics">
-                        <span class="sub-topic-tag">Güneş Sistemi ve Tutulmalar</span>
-                        <span class="sub-topic-tag">Kuvvet ve Hareket</span>
-                        <span class="sub-topic-tag">Canlılarda Sistemler</span>
-                        <span class="sub-topic-tag">Işığın Yansıması</span>
-                    </div>
-                    <div class="video-grid">
-                        <div class="video-card">
-                            <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>6. Sınıf Fen Bilimleri Konu Anlatımları</h4>
-                                <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. TÜRKÇE -->
-                <div class="unit-group">
-                    <h3><i class="fa-solid fa-book-open"></i> Türkçe (Tüm Temalar)</h3>
-                    <div class="sub-topics">
-                        <span class="sub-topic-tag">Dilimizin Zenginliği</span>
-                        <span class="sub-topic-tag">Bağımsızlık Yolu</span>
-                        <span class="sub-topic-tag">Farklı Dünyalar</span>
-                    </div>
-                    <div class="video-grid">
-                        <div class="video-card">
-                            <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>6. Sınıf Türkçe Paragraf & Metinler</h4>
-                                <a href="https://www.youtube.com/@tonguc6" target="_blank" class="watch-btn"><i class="fa-brands fa-youtube"></i> Tonguç'ta İzle</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GERİ BİLDİRİM BÖLÜMÜ -->
-            <div id="feedbackSection" class="hidden">
-                <div class="feedback-box">
-                    <h2><i class="fa-solid fa-comment-dots" style="color: var(--primary);"></i> Geri Bildirim Gönder</h2>
-                    <p style="color: var(--text-sub); margin-bottom: 20px; font-size: 0.9rem;">Önerilerini, şikayetlerini veya gördüğün hataları doğrudan kurucuya ilet.</p>
-                    
-                    <input type="text" id="fbTitle" class="feedback-input" placeholder="Konu başlığı...">
-                    <textarea id="fbContent" class="feedback-textarea" placeholder="Mesajını buraya yaz..."></textarea>
-                    <button onclick="sendFeedback()" class="feedback-btn"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
-                </div>
-            </div>
-
-            <!-- ADMIN PANELİ -->
-            <div id="adminSection" class="hidden">
-                <div class="card" style="border-color: #f59e0b;">
-                    <h3><i class="fa-solid fa-shield-halved" style="color: #f59e0b;"></i> Admin Paneli - Geri Bildirimler</h3>
-                    <p style="color: var(--text-sub); margin-bottom: 15px;">Kullanıcılardan gelen tüm geri bildirimler burada listelenir.</p>
-                    <div id="feedbackList" style="display: flex; flex-direction: column; gap: 10px;"></div>
-                </div>
-            </div>
-
-            <!-- YAKINDA BÖLÜMÜ -->
-            <div id="comingSoonSection" class="hidden">
-                <div style="text-align: center; padding: 60px 20px;">
-                    <i class="fa-solid fa-clock-rotate-left" style="font-size: 4rem; color: #f59e0b; margin-bottom: 15px;"></i>
-                    <h2>YAKINDA...</h2>
-                    <p style="color: var(--text-sub);">Bu özellik geliştirme aşamasındadır.</p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            Made by batino190374
-        </footer>
-    </div>
-
-    <script>
-        // TEMA YÖNETİMİ
-        function toggleThemeMenu() {
-            const dropdown = document.getElementById('themeDropdown');
-            dropdown.classList.toggle('show');
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.closest('.theme-dropdown-container')) {
-                const dropdown = document.getElementById('themeDropdown');
-                if (dropdown && dropdown.classList.contains('show')) {
-                    dropdown.classList.remove('show');
-                }
-            }
-        }
-
-        function setTheme(themeName) {
-            document.documentElement.setAttribute('data-theme', themeName);
-            localStorage.setItem('aksiyon_theme', themeName);
-            document.getElementById('themeDropdown').classList.remove('show');
-        }
-
-        function loadTheme() {
-            const savedTheme = localStorage.getItem('aksiyon_theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        }
-        loadTheme();
-
-        // SINIF UYARI KONTROLÜ
-        function checkGradeSelection() {
-            const grade = document.getElementById('gradeSelect').value;
-            const gradeError = document.getElementById('gradeError');
-            
-            if (grade === '5. Sınıf' || grade === '7. Sınıf' || grade === '8. Sınıf') {
-                gradeError.innerText = "Bu sınıf seviyesi için içerikler şu anda aktif değildir, yakında eklenecektir.";
-            } else {
-                gradeError.innerText = "";
-            }
-        }
-
-        // SEKME GEÇİŞLERİ
-        function showSection(sectionName) {
-            document.getElementById('homeSection').classList.add('hidden');
-            document.getElementById('derslerSection').classList.add('hidden');
-            document.getElementById('feedbackSection').classList.add('hidden');
-            document.getElementById('adminSection').classList.add('hidden');
-            document.getElementById('comingSoonSection').classList.add('hidden');
-
-            if (sectionName === 'home') document.getElementById('homeSection').classList.remove('hidden');
-            if (sectionName === 'dersler') document.getElementById('derslerSection').classList.remove('hidden');
-            if (sectionName === 'feedback') document.getElementById('feedbackSection').classList.remove('hidden');
-            if (sectionName === 'admin') {
-                document.getElementById('adminSection').classList.remove('hidden');
-                loadFeedbacks();
-            }
-            if (sectionName === 'comingSoon') document.getElementById('comingSoonSection').classList.remove('hidden');
-        }
-
-        // KULLANICI KONTROLÜ & GİRİŞ
-        function checkUser() {
-            const user = localStorage.getItem('aksiyon_user');
-            const grade = localStorage.getItem('aksiyon_grade');
-
-            if (user && grade) {
-                document.getElementById('authModal').classList.add('hidden');
-                document.getElementById('displayUsername').innerText = user;
-                document.getElementById('welcomeName').innerText = user;
-                document.getElementById('userAvatar').innerText = user.charAt(0).toUpperCase();
-                document.getElementById('displayGrade').innerText = grade;
-                document.getElementById('headerTitle').innerText = grade + " Maarif Modeli Portalı";
-
-                if (user === 'admin190374' && grade === '6. Sınıf') {
-                    document.getElementById('adminMenuLink').style.display = 'block';
-                }
-            } else {
-                document.getElementById('authModal').classList.remove('hidden');
-            }
-        }
-
-        function loginUser() {
-            const user = document.getElementById('usernameInput').value.trim();
-            const grade = document.getElementById('gradeSelect').value;
-            const userError = document.getElementById('userError');
-
-            if (!user) {
-                userError.innerText = "Lütfen geçerli bir rumuz giriniz.";
-                return;
-            }
-            userError.innerText = "";
-
-            localStorage.setItem('aksiyon_user', user);
-            localStorage.setItem('aksiyon_grade', grade);
-            checkUser();
-        }
-
-        function logoutUser() {
-            localStorage.removeItem('aksiyon_user');
-            localStorage.removeItem('aksiyon_grade');
-            location.reload();
-        }
-
-        // GERİ BİLDİRİM SİSTEMİ
-        function sendFeedback() {
-            const title = document.getElementById('fbTitle').value.trim();
-            const content = document.getElementById('fbContent').value.trim();
-            const user = localStorage.getItem('aksiyon_user');
-
-            if (!title || !content) {
-                alert('Lütfen başlık ve mesaj alanını doldurun.');
-                return;
-            }
-
-            let feedbacks = JSON.parse(localStorage.getItem('aksiyon_feedbacks') || '[]');
-            feedbacks.push({ user: user, title: title, content: content, date: new Date().toLocaleString() });
-            localStorage.setItem('aksiyon_feedbacks', JSON.stringify(feedbacks));
-
-            alert('Geri bildiriminiz başarıyla gönderildi! Teşekkür ederiz.');
-            document.getElementById('fbTitle').value = '';
-            document.getElementById('fbContent').value = '';
-            showSection('home');
-        }
-
-        function loadFeedbacks() {
-            const listContainer = document.getElementById('feedbackList');
-            let feedbacks = JSON.parse(localStorage.getItem('aksiyon_feedbacks') || '[]');
-
-            if (feedbacks.length === 0) {
-                listContainer.innerHTML = '<p style="color: var(--text-sub);">Henüz hiç geri bildirim gönderilmemiş.</p>';
-                return;
-            }
-
-            listContainer.innerHTML = '';
-            feedbacks.forEach((fb) => {
-                const item = document.createElement('div');
-                item.style.background = 'var(--bg-dark)';
-                item.style.padding = '15px';
-                item.style.borderRadius = '8px';
-                item.style.border = '1px solid var(--border)';
-                item.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-sub); margin-bottom: 5px;">
-                        <span>Gönderen: <strong>${fb.user}</strong></span>
-                        <span>${fb.date}</span>
-                    </div>
-                    <h4 style="color: var(--primary); margin-bottom: 5px;">${fb.title}</h4>
-                    <p style="font-size: 0.95rem;">${fb.content}</p>
-                `;
-                listContainer.appendChild(item);
-            });
-        }
-
-        checkUser();
-    </script>
-</body>
-</html>
