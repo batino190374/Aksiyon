@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aksiyon - Cyberpunk Eğitim Platformu</title>
+    <title>Aksiyon - 6. Sınıf Yol Haritası</title>
     <style>
         :root {
-            --bg-color: #050505;
-            --panel-bg: #0a0f0a;
-            --neon-green: #00ff66;
-            --neon-dim: #003311;
-            --border-green: #00cc44;
-            --text-main: #e0e0e0;
-            --text-muted: #888888;
-            --danger: #ff0055;
+            --bg-color: #f4f7f6;
+            --panel-bg: #ffffff;
+            --primary-green: #00c853;
+            --primary-dark: #009624;
+            --light-green: #e8f5e9;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
         }
 
         * {
@@ -47,19 +47,18 @@
 
         .auth-card {
             background: var(--panel-bg);
-            border: 2px solid var(--neon-green);
-            box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0, 200, 83, 0.1);
             padding: 40px;
-            border-radius: 12px;
+            border-radius: 16px;
             width: 380px;
             text-align: center;
         }
 
         .auth-card h1 {
-            color: var(--neon-green);
+            color: var(--primary-green);
             margin-bottom: 25px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+            letter-spacing: 1px;
         }
 
         .input-group {
@@ -69,43 +68,45 @@
 
         .input-group label {
             display: block;
-            color: var(--neon-green);
+            color: var(--text-muted);
             font-size: 14px;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .input-group input {
             width: 100%;
             padding: 12px;
-            background: #000;
-            border: 1px solid var(--border-green);
-            color: var(--neon-green);
-            border-radius: 6px;
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 8px;
             outline: none;
-            font-size: 16px;
+            font-size: 15px;
+            transition: 0.2s;
         }
 
         .input-group input:focus {
-            box-shadow: 0 0 8px var(--neon-green);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.15);
         }
 
-        .cyber-btn {
+        .btn-primary {
             width: 100%;
             padding: 12px;
-            background: var(--neon-green);
-            color: #000;
+            background: var(--primary-green);
+            color: #fff;
             border: none;
             font-weight: bold;
             font-size: 16px;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 200, 83, 0.2);
         }
 
-        .cyber-btn:hover {
-            background: #00cc52;
-            box-shadow: 0 0 15px var(--neon-green);
+        .btn-primary:hover {
+            background: var(--primary-dark);
         }
 
         /* ANA UYGULAMA */
@@ -117,22 +118,23 @@
 
         header {
             background: var(--panel-bg);
-            border-bottom: 1px solid var(--border-green);
+            border-bottom: 1px solid var(--border-color);
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .logo {
-            color: var(--neon-green);
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+            color: var(--primary-green);
+            font-size: 22px;
+            font-weight: 800;
+            cursor: pointer;
         }
 
         nav a {
-            color: var(--text-main);
+            color: var(--text-muted);
             text-decoration: none;
             margin-left: 20px;
             font-weight: 600;
@@ -140,18 +142,20 @@
             cursor: pointer;
         }
 
-        nav a:hover {
-            color: var(--neon-green);
+        nav a:hover, nav a.active-nav {
+            color: var(--primary-green);
         }
 
         .user-stats {
             display: flex;
             gap: 15px;
             align-items: center;
-            background: #000;
+            background: var(--light-green);
             padding: 8px 15px;
-            border: 1px solid var(--border-green);
-            border-radius: 8px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-dark);
         }
 
         main {
@@ -161,22 +165,98 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
-        /* VİDEO OYNATICI ALANI */
+        /* YOL HARİTASI & TAKVİM EKRANI */
+        .roadmap-screen {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+            color: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 200, 83, 0.2);
+        }
+
+        .welcome-banner h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .welcome-banner p {
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .roadmap-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-green);
+            box-shadow: 0 6px 18px rgba(0, 200, 83, 0.15);
+        }
+
+        .roadmap-card h3 {
+            color: var(--primary-dark);
+            font-size: 18px;
+        }
+
+        .roadmap-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .roadmap-tag {
+            align-self: flex-start;
+            background: var(--light-green);
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* VİDEO EKRANI (Gizli Başlar) */
+        #video-view {
+            display: none;
+            flex-direction: column;
+            gap: 25px;
+        }
+
         .video-section {
             background: var(--panel-bg);
-            border: 1px solid var(--border-green);
-            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .video-frame {
             width: 100%;
-            height: 450px;
-            background: #000;
+            height: 420px;
+            background: #1a202c;
             position: relative;
             display: flex;
             justify-content: center;
@@ -184,43 +264,38 @@
         }
 
         .video-placeholder-text {
-            color: var(--neon-green);
+            color: #fff;
             font-size: 20px;
-            text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+            font-weight: 600;
         }
 
-        /* Özel Kontrol Çubuğu */
         .custom-controls {
-            background: #080c08;
+            background: #ffffff;
             padding: 12px 20px;
             display: flex;
             align-items: center;
             gap: 15px;
-            border-top: 1px solid var(--border-green);
+            border-top: 1px solid var(--border-color);
         }
 
         .ctrl-btn {
             background: none;
             border: none;
-            color: var(--neon-green);
+            color: var(--text-muted);
             cursor: pointer;
             font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             transition: 0.2s;
         }
 
         .ctrl-btn:hover {
-            color: #fff;
-            text-shadow: 0 0 8px var(--neon-green);
+            color: var(--primary-green);
         }
 
         .play-main-btn {
-            width: 36px;
-            height: 36px;
-            background: var(--neon-green);
-            color: #000;
+            width: 38px;
+            height: 38px;
+            background: var(--primary-green);
+            color: #fff;
             border-radius: 50%;
             border: none;
             cursor: pointer;
@@ -228,40 +303,42 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+            box-shadow: 0 2px 6px rgba(0, 200, 83, 0.3);
+            transition: 0.2s;
         }
 
         .progress-bar-container {
             flex-grow: 1;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .progress-slider {
             flex-grow: 1;
-            accent-color: var(--neon-green);
+            accent-color: var(--primary-green);
             cursor: pointer;
         }
 
         .time-display {
             font-size: 13px;
-            color: var(--text-main);
+            color: var(--text-muted);
             min-width: 85px;
             text-align: center;
+            font-weight: 600;
         }
 
-        /* VİDEO BÖLÜMLERİ (YATAY KARTLAR) */
+        /* YATAY KAYDIRILABILIR BÖLÜMLER (YAN YANA KARTLAR) */
         .chapters-container {
             padding: 20px;
-            background: var(--panel-bg);
-            border-top: 1px solid #112211;
+            background: #fafafa;
+            border-top: 1px solid var(--border-color);
         }
 
         .chapters-header {
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--neon-green);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
             margin-bottom: 12px;
         }
 
@@ -269,95 +346,95 @@
             display: flex;
             gap: 12px;
             overflow-x: auto;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-green) var(--border-color);
         }
 
         .chapter-card {
-            min-width: 160px;
-            background: #000;
-            border: 1px solid var(--border-green);
-            border-radius: 8px;
-            padding: 12px;
+            min-width: 180px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px;
             cursor: pointer;
             transition: 0.2s;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .chapter-card:hover, .chapter-card.active {
-            border-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
-            background: var(--neon-dim);
+            border-color: var(--primary-green);
+            background: var(--light-green);
+            box-shadow: 0 4px 10px rgba(0, 200, 83, 0.1);
         }
 
         .chapter-time {
             font-size: 12px;
-            color: var(--neon-green);
-            margin-bottom: 4px;
+            color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .chapter-title {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-main);
-            font-weight: 500;
+            font-weight: 600;
         }
 
-        /* KONUYU AKSİYONLA WIDGET ALANI */
+        /* KONUYU AKSİYONLA WIDGETLARI (YAN YANA KARE YUVARLATILMIŞ WIDGETLAR) */
         .action-modules-section {
             background: var(--panel-bg);
-            border: 1px solid var(--border-green);
-            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
             padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .section-title {
-            color: var(--neon-green);
-            font-size: 20px;
+            color: var(--text-main);
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 20px;
-            text-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .progress-badge {
-            font-size: 14px;
-            background: #000;
-            padding: 5px 12px;
-            border: 1px solid var(--border-green);
+            font-size: 13px;
+            background: var(--light-green);
+            padding: 6px 14px;
             border-radius: 20px;
-            color: var(--neon-green);
+            color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .modules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            gap: 15px;
         }
 
         .module-widget {
-            background: #000;
-            border: 1px solid var(--border-green);
-            border-radius: 12px;
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
             padding: 20px;
             cursor: pointer;
             transition: 0.2s;
-            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 130px;
+            min-height: 120px;
         }
 
         .module-widget:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
-            border-color: #fff;
-        }
-
-        .module-widget.active-widget {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
-            background: var(--neon-dim);
+            border-color: var(--primary-green);
+            background: var(--light-green);
+            box-shadow: 0 4px 12px rgba(0, 200, 83, 0.1);
+            transform: translateY(-2px);
         }
 
         .module-top {
@@ -367,59 +444,20 @@
         }
 
         .module-icon {
-            font-size: 24px;
+            font-size: 22px;
         }
 
         .module-status {
             font-size: 12px;
-            color: var(--neon-green);
-            font-weight: bold;
+            color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .module-name {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: var(--text-main);
-            margin-top: 10px;
-        }
-
-        /* YAZILI KAMPI BÖLÜMÜ */
-        #yazili-kampi {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-green);
-            border-radius: 12px;
-            padding: 25px;
-        }
-
-        .camp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .camp-card {
-            background: #000;
-            border: 1px solid #113311;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .camp-card:hover {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
-        }
-
-        .camp-card h4 {
-            color: var(--neon-green);
-            margin-bottom: 5px;
-        }
-
-        .camp-card p {
-            color: var(--text-muted);
-            font-size: 13px;
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -431,146 +469,154 @@
             <h1>AKSIYON</h1>
             <div class="input-group">
                 <label>Kullanıcı Adı</label>
-                <input type="text" id="username-input" placeholder="Siber ajan adını gir...">
+                <input type="text" id="username-input" placeholder="Adını gir...">
             </div>
             <div class="input-group">
                 <label>Şifre</label>
                 <input type="password" id="password-input" placeholder="••••••••">
             </div>
-            <button class="cyber-btn" onclick="handleLogin()">SİSTEME BAĞLAN</button>
+            <button class="btn-primary" onclick="handleLogin()">SİSTEME BAĞLAN</button>
         </div>
     </div>
 
     <!-- ANA UYGULAMA -->
     <div id="app-container">
         <header>
-            <div class="logo">AKSIYON // 6. SINIF</div>
+            <div class="logo" onclick="switchView('roadmap')">AKSIYON // 6. SINIF</div>
             <nav>
-                <a onclick="scrollToSection('video-section-anchor')">Ana Sayfa</a>
-                <a onclick="scrollToSection('yazili-kampi')">Yazılı Kampı</a>
-                <a onclick="alert('Takvim modülü aktif.')">Takvim & Yol Haritası</a>
+                <a id="nav-roadmap" class="active-nav" onclick="switchView('roadmap')">Yol Haritası & Takvim</a>
+                <a id="nav-camp" onclick="openCampView('İngilizce 1. Yazılı Kampı')">Yazılı Kampı</a>
             </nav>
             <div class="user-stats">
-                <span id="display-user" style="color: var(--neon-green); font-weight: bold;">Ajan</span>
+                <span id="display-user" style="color: var(--primary-dark);">Ajan</span>
                 <span>🔥 3 Gün</span>
                 <span>⚡ 450 XP</span>
             </div>
         </header>
 
         <main>
-            <!-- VİDEO VE KONTROL BÖLÜMÜ -->
-            <div id="video-section-anchor" class="video-section">
-                <div class="video-frame">
-                    <div class="video-placeholder-text" id="current-video-title">6. Sınıf İngilizce - 1. Dönem 1. Yazılıya Hazırlık</div>
+            <!-- 1. YOL HARİTASI VE TAKVİM ANA EKRANI -->
+            <div id="roadmap-view" class="roadmap-screen">
+                <div class="welcome-banner">
+                    <h2>Hoş Geldin, Siber Ajan!</h2>
+                    <p>Tonguç 6. Sınıf kamp takvimin ve günlük yol haritan aşağıda seni bekliyor. Çalışmak istediğin konuyu seç ve aksiyona başla!</p>
                 </div>
 
-                <!-- Özel Video Kontrol Çubuğu -->
-                <div class="custom-controls">
-                    <button class="play-main-btn" onclick="togglePlay()">▶</button>
-                    <button class="ctrl-btn" onclick="skipTime(-10)" title="10 Saniye Geri">⏪</button>
-                    <button class="ctrl-btn" onclick="skipTime(10)" title="10 Saniye İleri">⏩</button>
-                    
-                    <div class="progress-bar-container">
-                        <input type="range" class="progress-slider" min="0" max="100" value="5">
-                        <span class="time-display" id="time-counter">1:27 / 41:19</span>
+                <div class="section-title">
+                    <span>Tonguç 6. Sınıf Yazılı Kampı Yol Haritası</span>
+                    <span class="progress-badge">Hafta 1 / Kamp Aktif</span>
+                </div>
+
+                <div class="roadmap-grid">
+                    <div class="roadmap-card" onclick="openCampView('İngilizce 1. Yazılı Kampı')">
+                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
+                        <h3>İngilizce Kampı</h3>
+                        <p>School Life, Yunctual & Daily Routines konuları ve full tekrar testleri.</p>
                     </div>
-
-                    <button class="ctrl-btn" title="Ses">🔊</button>
-                    <button class="ctrl-btn" title="Oynatma Hızı">1x</button>
-                    <button class="ctrl-btn" title="Tam Ekran" onclick="toggleFullscreen()">⛶</button>
-                </div>
-
-                <!-- Zaman Damgaları / Bölümler -->
-                <div class="chapters-container">
-                    <div class="chapters-header">Bölümler 2/20</div>
-                    <div class="chapters-grid">
-                        <div class="chapter-card active" onclick="changeChapter('Okul Rolleri', '0:00', this)">
-                            <div class="chapter-time">ŞİMDİ</div>
-                            <div class="chapter-title">Okul Rolleri</div>
-                        </div>
-                        <div class="chapter-card" onclick="changeChapter('Okul Kuralları', '3:01', this)">
-                            <div class="chapter-time">3:01</div>
-                            <div class="chapter-title">Okul Kuralları</div>
-                        </div>
-                        <div class="chapter-card" onclick="changeChapter('Günlük Rutinler', '3:35', this)">
-                            <div class="chapter-time">3:35</div>
-                            <div class="chapter-title">Günlük Rutinler</div>
-                        </div>
-                        <div class="chapter-card" onclick="changeChapter('Kutlama Aktiviteleri', '4:00', this)">
-                            <div class="chapter-time">4:00</div>
-                            <div class="chapter-title">Kutlama Aktiviteleri</div>
-                        </div>
-                        <div class="chapter-card" onclick="changeChapter('Ek Kelime Bilgisi', '4:16', this)">
-                            <div class="chapter-time">4:16</div>
-                            <div class="chapter-title">Ek Kelime Bilgisi</div>
-                        </div>
-                        <div class="chapter-card" onclick="changeChapter('Kutlama ve Sorular', '6:32', this)">
-                            <div class="chapter-time">6:32</div>
-                            <div class="chapter-title">Kutlama ve Sorular</div>
-                        </div>
+                    <div class="roadmap-card" onclick="openCampView('Matematik 1. Yazılı Kampı')">
+                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
+                        <h3>Matematik Kampı</h3>
+                        <p>Doğal Sayılarla İşlemler, Çarpanlar ve Katlar.</p>
+                    </div>
+                    <div class="roadmap-card" onclick="openCampView('Türkçe 1. Yazılı Kampı')">
+                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
+                        <h3>Türkçe Kampı</h3>
+                        <p>Sözcükte Anlam, Cümlede Anlam ve Paragraf Taktikleri.</p>
+                    </div>
+                    <div class="roadmap-card" onclick="openCampView('Fen Bilimleri 1. Yazılı')">
+                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
+                        <h3>Fen Bilimleri Kampı</h3>
+                        <p>Güneş Sistemi ve Tutulmalar, Destek ve Hareket Sistemi.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- KONUYU AKSİYONLA WIDGETLARI -->
-            <div class="action-modules-section">
-                <div class="section-title">
-                    <span>Konuyu Aksiyonla</span>
-                    <span class="progress-badge">%0 Tamamlandı (0/4 Adım)</span>
-                </div>
-                <div class="modules-grid">
-                    <div class="module-widget active-widget" onclick="selectModule(this)">
-                        <div class="module-top">
-                            <span class="module-icon">🎓</span>
-                            <span class="module-status">Sırada</span>
-                        </div>
-                        <div class="module-name">Konuyu Öğren</div>
+            <!-- 2. VİDEO VE DERS OYNATICI EKRANI -->
+            <div id="video-view">
+                <div class="video-section">
+                    <div class="video-frame">
+                        <div class="video-placeholder-text" id="current-video-title">6. Sınıf İngilizce - 1. Dönem 1. Yazılıya Hazırlık</div>
                     </div>
-                    <div class="module-widget" onclick="selectModule(this)">
-                        <div class="module-top">
-                            <span class="module-icon">⚡</span>
-                            <span class="module-status">10 Soru</span>
-                        </div>
-                        <div class="module-name">Hızlı Sorular</div>
-                    </div>
-                    <div class="module-widget" onclick="selectModule(this)">
-                        <div class="module-top">
-                            <span class="module-icon">📝</span>
-                            <span class="module-status">15 Dk</span>
-                        </div>
-                        <div class="module-name">Mini Yazılı</div>
-                    </div>
-                    <div class="module-widget" onclick="selectModule(this)">
-                        <div class="module-top">
-                            <span class="module-icon">🎮</span>
-                            <span class="module-status">2 Oyun</span>
-                        </div>
-                        <div class="module-name">Oyunlar</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- YAZILI KAMPI BÖLÜMÜ -->
-            <div id="yazili-kampi">
-                <div class="section-title">
-                    <span>Yazılı Kampı - Tonguç 6. Sınıf</span>
+                    <!-- Kontrol Çubuğu -->
+                    <div class="custom-controls">
+                        <button class="play-main-btn" onclick="togglePlay()">▶</button>
+                        <button class="ctrl-btn" onclick="skipTime(-10)" title="10 Saniye Geri">⏪</button>
+                        <button class="ctrl-btn" onclick="skipTime(10)" title="10 Saniye İleri">⏩</button>
+                        
+                        <div class="progress-bar-container">
+                            <input type="range" class="progress-slider" min="0" max="100" value="5">
+                            <span class="time-display" id="time-counter">1:27 / 41:19</span>
+                        </div>
+
+                        <button class="ctrl-btn" title="Ses">🔊</button>
+                        <button class="ctrl-btn" title="Oynatma Hızı">1x</button>
+                        <button class="ctrl-btn" title="Tam Ekran" onclick="toggleFullscreen()">⛶</button>
+                    </div>
+
+                    <!-- Yatay Kaydırılabilir Bölümler (Yan Yana Kartlar) -->
+                    <div class="chapters-container">
+                        <div class="chapters-header">Bölümler 2/20</div>
+                        <div class="chapters-grid">
+                            <div class="chapter-card active" onclick="changeChapter('Okul Rolleri', '0:00', this)">
+                                <div class="chapter-time">ŞİMDİ</div>
+                                <div class="chapter-title">Okul Rolleri</div>
+                            </div>
+                            <div class="chapter-card" onclick="changeChapter('Okul Kuralları', '3:01', this)">
+                                <div class="chapter-time">3:01</div>
+                                <div class="chapter-title">Okul Kuralları</div>
+                            </div>
+                            <div class="chapter-card" onclick="changeChapter('Günlük Rutinler', '3:35', this)">
+                                <div class="chapter-time">3:35</div>
+                                <div class="chapter-title">Günlük Rutinler</div>
+                            </div>
+                            <div class="chapter-card" onclick="changeChapter('Kutlama Aktiviteleri', '4:00', this)">
+                                <div class="chapter-time">4:00</div>
+                                <div class="chapter-title">Kutlama Aktiviteleri</div>
+                            </div>
+                            <div class="chapter-card" onclick="changeChapter('Ek Kelime Bilgisi', '4:16', this)">
+                                <div class="chapter-time">4:16</div>
+                                <div class="chapter-title">Ek Kelime Bilgisi</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="camp-grid">
-                    <div class="camp-card" onclick="loadCampVideo('İngilizce 1. Yazılı Kampı')">
-                        <h4>İngilizce Kampı</h4>
-                        <p>1. Dönem 1. Yazılı Full Tekrar</p>
+
+                <!-- KONUYU AKSİYONLA WIDGETLARI (Yan Yana Kare Yuvarlatılmış Widgetlar) -->
+                <div class="action-modules-section">
+                    <div class="section-title">
+                        <span>Konuyu Aksiyonla</span>
+                        <span class="progress-badge">%0 Tamamlandı (0/4 Adım)</span>
                     </div>
-                    <div class="camp-card" onclick="loadCampVideo('Matematik 1. Yazılı Kampı')">
-                        <h4>Matematik Kampı</h4>
-                        <p>Doğal Sayılar ve İşlemler</p>
-                    </div>
-                    <div class="camp-card" onclick="loadCampVideo('Türkçe 1. Yazılı Kampı')">
-                        <h4>Türkçe Kampı</h4>
-                        <p>Sözcükte Anlam ve Paragraf</p>
-                    </div>
-                    <div class="camp-card" onclick="loadCampVideo('Fen Bilimleri 1. Yazılı')">
-                        <h4>Fen Bilimleri Kampı</h4>
-                        <p>Güneş Sistemi ve Tutulmalar</p>
+                    <div class="modules-grid">
+                        <div class="module-widget" onclick="selectModule(this)">
+                            <div class="module-top">
+                                <span class="module-icon">🎓</span>
+                                <span class="module-status">Sırada</span>
+                            </div>
+                            <div class="module-name">Konuyu Öğren</div>
+                        </div>
+                        <div class="module-widget" onclick="selectModule(this)">
+                            <div class="module-top">
+                                <span class="module-icon">⚡</span>
+                                <span class="module-status">10 Soru</span>
+                            </div>
+                            <div class="module-name">Hızlı Sorular</div>
+                        </div>
+                        <div class="module-widget" onclick="selectModule(this)">
+                            <div class="module-top">
+                                <span class="module-icon">📝</span>
+                                <span class="module-status">15 Dk</span>
+                            </div>
+                            <div class="module-name">Mini Yazılı</div>
+                        </div>
+                        <div class="module-widget" onclick="selectModule(this)">
+                            <div class="module-top">
+                                <span class="module-icon">🎮</span>
+                                <span class="module-status">2 Oyun</span>
+                            </div>
+                            <div class="module-name">Oyunlar</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -589,8 +635,27 @@
             document.getElementById('app-container').style.display = 'flex';
         }
 
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        function switchView(viewName) {
+            const roadmapView = document.getElementById('roadmap-view');
+            const videoView = document.getElementById('video-view');
+            const navRoadmap = document.getElementById('nav-roadmap');
+            const navCamp = document.getElementById('nav-camp');
+
+            if(viewName === 'roadmap') {
+                roadmapView.style.display = 'flex';
+                videoView.style.display = 'none';
+                navRoadmap.classList.add('active-nav');
+                navCamp.classList.remove('active-nav');
+            }
+        }
+
+        function openCampView(campName) {
+            document.getElementById('roadmap-view').style.display = 'none';
+            document.getElementById('video-view').style.display = 'flex';
+            document.getElementById('current-video-title').innerText = campName;
+            document.getElementById('nav-roadmap').classList.remove('active-nav');
+            document.getElementById('nav-camp').classList.add('active-nav');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         let isPlaying = false;
@@ -621,13 +686,12 @@
         }
 
         function selectModule(element) {
-            document.querySelectorAll('.module-widget').forEach(w => w.classList.remove('active-widget'));
-            element.classList.add('active-widget');
-        }
-
-        function loadCampVideo(campName) {
-            document.getElementById('current-video-title').innerText = campName;
-            scrollToSection('video-section-anchor');
+            document.querySelectorAll('.module-widget').forEach(w => {
+                w.style.borderColor = 'var(--border-color)';
+                w.style.background = '#fafafa';
+            });
+            element.style.borderColor = 'var(--primary-green)';
+            element.style.background = 'var(--light-green)';
         }
     </script>
 </body>
