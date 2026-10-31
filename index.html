@@ -3,696 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aksiyon - 6. Sınıf Yol Haritası</title>
-    <style>
-        :root {
-            --bg-color: #f4f7f6;
-            --panel-bg: #ffffff;
-            --primary-green: #00c853;
-            --primary-dark: #009624;
-            --light-green: #e8f5e9;
-            --text-main: #2d3748;
-            --text-muted: #718096;
-            --border-color: #e2e8f0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* GİRİŞ EKRANI */
-        #auth-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .auth-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 25px rgba(0, 200, 83, 0.1);
-            padding: 40px;
-            border-radius: 16px;
-            width: 380px;
-            text-align: center;
-        }
-
-        .auth-card h1 {
-            color: var(--primary-green);
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            background: #fafafa;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            border-radius: 8px;
-            outline: none;
-            font-size: 15px;
-            transition: 0.2s;
-        }
-
-        .input-group input:focus {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.15);
-        }
-
-        .btn-primary {
-            width: 100%;
-            padding: 12px;
-            background: var(--primary-green);
-            color: #fff;
-            border: none;
-            font-weight: bold;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(0, 200, 83, 0.2);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-        }
-
-        /* ANA UYGULAMA */
-        #app-container {
-            display: none;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background: var(--panel-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .logo {
-            color: var(--primary-green);
-            font-size: 22px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-
-        nav a:hover, nav a.active-nav {
-            color: var(--primary-green);
-        }
-
-        .user-stats {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            background: var(--light-green);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        main {
-            padding: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        /* YOL HARİTASI & TAKVİM EKRANI */
-        .roadmap-screen {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .welcome-banner {
-            background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
-            color: #fff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 200, 83, 0.2);
-        }
-
-        .welcome-banner h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .welcome-banner p {
-            opacity: 0.9;
-            font-size: 15px;
-        }
-
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .roadmap-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .roadmap-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-green);
-            box-shadow: 0 6px 18px rgba(0, 200, 83, 0.15);
-        }
-
-        .roadmap-card h3 {
-            color: var(--primary-dark);
-            font-size: 18px;
-        }
-
-        .roadmap-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        .roadmap-tag {
-            align-self: flex-start;
-            background: var(--light-green);
-            color: var(--primary-dark);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        /* VİDEO EKRANI (Gizli Başlar) */
-        #video-view {
-            display: none;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .video-section {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .video-frame {
-            width: 100%;
-            height: 420px;
-            background: #1a202c;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .video-placeholder-text {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .custom-controls {
-            background: #ffffff;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .ctrl-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.2s;
-        }
-
-        .ctrl-btn:hover {
-            color: var(--primary-green);
-        }
-
-        .play-main-btn {
-            width: 38px;
-            height: 38px;
-            background: var(--primary-green);
-            color: #fff;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 6px rgba(0, 200, 83, 0.3);
-            transition: 0.2s;
-        }
-
-        .progress-bar-container {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .progress-slider {
-            flex-grow: 1;
-            accent-color: var(--primary-green);
-            cursor: pointer;
-        }
-
-        .time-display {
-            font-size: 13px;
-            color: var(--text-muted);
-            min-width: 85px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        /* YATAY KAYDIRILABILIR BÖLÜMLER (YAN YANA KARTLAR) */
-        .chapters-container {
-            padding: 20px;
-            background: #fafafa;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .chapters-header {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 12px;
-        }
-
-        .chapters-grid {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-green) var(--border-color);
-        }
-
-        .chapter-card {
-            min-width: 180px;
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 14px;
-            cursor: pointer;
-            transition: 0.2s;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .chapter-card:hover, .chapter-card.active {
-            border-color: var(--primary-green);
-            background: var(--light-green);
-            box-shadow: 0 4px 10px rgba(0, 200, 83, 0.1);
-        }
-
-        .chapter-time {
-            font-size: 12px;
-            color: var(--primary-dark);
-            font-weight: 700;
-        }
-
-        .chapter-title {
-            font-size: 13px;
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* KONUYU AKSİYONLA WIDGETLARI (YAN YANA KARE YUVARLATILMIŞ WIDGETLAR) */
-        .action-modules-section {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .section-title {
-            color: var(--text-main);
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .progress-badge {
-            font-size: 13px;
-            background: var(--light-green);
-            padding: 6px 14px;
-            border-radius: 20px;
-            color: var(--primary-dark);
-            font-weight: 700;
-        }
-
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-
-        .module-widget {
-            background: #fafafa;
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 120px;
-        }
-
-        .module-widget:hover {
-            border-color: var(--primary-green);
-            background: var(--light-green);
-            box-shadow: 0 4px 12px rgba(0, 200, 83, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .module-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .module-icon {
-            font-size: 22px;
-        }
-
-        .module-status {
-            font-size: 12px;
-            color: var(--primary-dark);
-            font-weight: 700;
-        }
-
-        .module-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-top: 12px;
-        }
-    </style>
+    <title>Aksiyon - 6. Sınıf Yazılı Kampı</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- GİRİŞ EKRANI -->
-    <div id="auth-screen">
-        <div class="auth-card">
-            <h1>AKSIYON</h1>
-            <div class="input-group">
-                <label>Kullanıcı Adı</label>
-                <input type="text" id="username-input" placeholder="Adını gir...">
-            </div>
-            <div class="input-group">
-                <label>Şifre</label>
-                <input type="password" id="password-input" placeholder="••••••••">
-            </div>
-            <button class="btn-primary" onclick="handleLogin()">SİSTEME BAĞLAN</button>
-        </div>
-    </div>
-
-    <!-- ANA UYGULAMA -->
-    <div id="app-container">
-        <header>
-            <div class="logo" onclick="switchView('roadmap')">AKSIYON // 6. SINIF</div>
-            <nav>
-                <a id="nav-roadmap" class="active-nav" onclick="switchView('roadmap')">Yol Haritası & Takvim</a>
-                <a id="nav-camp" onclick="openCampView('İngilizce 1. Yazılı Kampı')">Yazılı Kampı</a>
+    <!-- ÜST MENÜ -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <span class="logo-text">AKSIYON</span>
+            <nav class="main-menu">
+                <a href="#" class="active">Yazılı Kampı</a>
+                <a href="#">Karnem</a>
+                <a href="#">PRO Sayfam</a>
+                <a href="#">Ortak Yazılı Sınavı</a>
+                <a href="#">Denemeler</a>
             </nav>
-            <div class="user-stats">
-                <span id="display-user" style="color: var(--primary-dark);">Ajan</span>
-                <span>🔥 3 Gün</span>
-                <span>⚡ 450 XP</span>
+        </div>
+        <div class="nav-right">
+            <span class="pro-badge">PRO nedir?</span>
+            <span class="user-info">👤 asdasdasd (6. Sınıf)</span>
+        </div>
+    </header>
+
+    <!-- ANA İÇERİK ALANI -->
+    <main class="main-container">
+        
+        <!-- BAŞLIK VE GERİ SAYIM -->
+        <div class="page-title-row">
+            <h1>Yazılı Kampı</h1>
+            <div class="countdown-pill">İlk yazılına <b>3 gün</b></div>
+        </div>
+
+        <!-- TARİH SEÇİCİ ŞERİTİ -->
+        <div class="date-strip">
+            <div class="date-item">29</div>
+            <div class="date-item">30</div>
+            <div class="date-item active-date">
+                <span>31</span>
+                <span class="bugun-badge">BUGÜN</span>
             </div>
-        </header>
+            <div class="date-item">1</div>
+        </div>
 
-        <main>
-            <!-- 1. YOL HARİTASI VE TAKVİM ANA EKRANI -->
-            <div id="roadmap-view" class="roadmap-screen">
-                <div class="welcome-banner">
-                    <h2>Hoş Geldin, Siber Ajan!</h2>
-                    <p>Tonguç 6. Sınıf kamp takvimin ve günlük yol haritan aşağıda seni bekliyor. Çalışmak istediğin konuyu seç ve aksiyona başla!</p>
-                </div>
-
-                <div class="section-title">
-                    <span>Tonguç 6. Sınıf Yazılı Kampı Yol Haritası</span>
-                    <span class="progress-badge">Hafta 1 / Kamp Aktif</span>
-                </div>
-
-                <div class="roadmap-grid">
-                    <div class="roadmap-card" onclick="openCampView('İngilizce 1. Yazılı Kampı')">
-                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
-                        <h3>İngilizce Kampı</h3>
-                        <p>School Life, Yunctual & Daily Routines konuları ve full tekrar testleri.</p>
+        <!-- İKİ SÜTUNLU ANA YAPI -->
+        <div class="content-grid">
+            
+            <!-- SOL TARAF: TAKVİM VE VİDEO OYNATICI -->
+            <div class="left-section">
+                <div class="day-box">
+                    <div class="day-info">
+                        <span class="day-name">CUMARTESİ</span>
+                        <span class="day-num">31</span>
+                        <span class="day-month">EKİM</span>
                     </div>
-                    <div class="roadmap-card" onclick="openCampView('Matematik 1. Yazılı Kampı')">
-                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
-                        <h3>Matematik Kampı</h3>
-                        <p>Doğal Sayılarla İşlemler, Çarpanlar ve Katlar.</p>
-                    </div>
-                    <div class="roadmap-card" onclick="openCampView('Türkçe 1. Yazılı Kampı')">
-                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
-                        <h3>Türkçe Kampı</h3>
-                        <p>Sözcükte Anlam, Cümlede Anlam ve Paragraf Taktikleri.</p>
-                    </div>
-                    <div class="roadmap-card" onclick="openCampView('Fen Bilimleri 1. Yazılı')">
-                        <span class="roadmap-tag">1. Dönem 1. Yazılı</span>
-                        <h3>Fen Bilimleri Kampı</h3>
-                        <p>Güneş Sistemi ve Tutulmalar, Destek ve Hareket Sistemi.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. VİDEO VE DERS OYNATICI EKRANI -->
-            <div id="video-view">
-                <div class="video-section">
-                    <div class="video-frame">
-                        <div class="video-placeholder-text" id="current-video-title">6. Sınıf İngilizce - 1. Dönem 1. Yazılıya Hazırlık</div>
-                    </div>
-
-                    <!-- Kontrol Çubuğu -->
-                    <div class="custom-controls">
-                        <button class="play-main-btn" onclick="togglePlay()">▶</button>
-                        <button class="ctrl-btn" onclick="skipTime(-10)" title="10 Saniye Geri">⏪</button>
-                        <button class="ctrl-btn" onclick="skipTime(10)" title="10 Saniye İleri">⏩</button>
-                        
-                        <div class="progress-bar-container">
-                            <input type="range" class="progress-slider" min="0" max="100" value="5">
-                            <span class="time-display" id="time-counter">1:27 / 41:19</span>
-                        </div>
-
-                        <button class="ctrl-btn" title="Ses">🔊</button>
-                        <button class="ctrl-btn" title="Oynatma Hızı">1x</button>
-                        <button class="ctrl-btn" title="Tam Ekran" onclick="toggleFullscreen()">⛶</button>
-                    </div>
-
-                    <!-- Yatay Kaydırılabilir Bölümler (Yan Yana Kartlar) -->
-                    <div class="chapters-container">
-                        <div class="chapters-header">Bölümler 2/20</div>
-                        <div class="chapters-grid">
-                            <div class="chapter-card active" onclick="changeChapter('Okul Rolleri', '0:00', this)">
-                                <div class="chapter-time">ŞİMDİ</div>
-                                <div class="chapter-title">Okul Rolleri</div>
-                            </div>
-                            <div class="chapter-card" onclick="changeChapter('Okul Kuralları', '3:01', this)">
-                                <div class="chapter-time">3:01</div>
-                                <div class="chapter-title">Okul Kuralları</div>
-                            </div>
-                            <div class="chapter-card" onclick="changeChapter('Günlük Rutinler', '3:35', this)">
-                                <div class="chapter-time">3:35</div>
-                                <div class="chapter-title">Günlük Rutinler</div>
-                            </div>
-                            <div class="chapter-card" onclick="changeChapter('Kutlama Aktiviteleri', '4:00', this)">
-                                <div class="chapter-time">4:00</div>
-                                <div class="chapter-title">Kutlama Aktiviteleri</div>
-                            </div>
-                            <div class="chapter-card" onclick="changeChapter('Ek Kelime Bilgisi', '4:16', this)">
-                                <div class="chapter-time">4:16</div>
-                                <div class="chapter-title">Ek Kelime Bilgisi</div>
-                            </div>
-                        </div>
+                    <div class="subject-info">
+                        <span class="subject-badge">İNGİLİZCE</span>
+                        <h2 id="current-lesson-title">1. Dönem 1. Yazılıya Hazırlık</h2>
+                        <p class="lesson-desc">İngilizce yazılın 12 Kasım'da</p>
                     </div>
                 </div>
 
-                <!-- KONUYU AKSİYONLA WIDGETLARI (Yan Yana Kare Yuvarlatılmış Widgetlar) -->
-                <div class="action-modules-section">
-                    <div class="section-title">
-                        <span>Konuyu Aksiyonla</span>
-                        <span class="progress-badge">%0 Tamamlandı (0/4 Adım)</span>
+                <!-- VİDEO OYNATICI KUTUSU -->
+                <div class="video-player-box">
+                    <div class="video-screen">
+                        <div class="play-circle">▶</div>
+                        <div class="video-title-overlay" id="video-overlay-title">6. SINIF İNGİLİZCE 1. DÖNEM 1. YAZILIYA HAZIRLIK</div>
                     </div>
-                    <div class="modules-grid">
-                        <div class="module-widget" onclick="selectModule(this)">
-                            <div class="module-top">
-                                <span class="module-icon">🎓</span>
-                                <span class="module-status">Sırada</span>
-                            </div>
-                            <div class="module-name">Konuyu Öğren</div>
+                    
+                    <!-- Özel Kontrol Çubuğu -->
+                    <div class="player-controls">
+                        <button class="ctrl-icon-btn">▶</button>
+                        <button class="ctrl-icon-btn">⏪ 10</button>
+                        <button class="ctrl-icon-btn">10 ⏩</button>
+                        <div class="slider-track">
+                            <div class="slider-thumb"></div>
                         </div>
-                        <div class="module-widget" onclick="selectModule(this)">
-                            <div class="module-top">
-                                <span class="module-icon">⚡</span>
-                                <span class="module-status">10 Soru</span>
-                            </div>
-                            <div class="module-name">Hızlı Sorular</div>
-                        </div>
-                        <div class="module-widget" onclick="selectModule(this)">
-                            <div class="module-top">
-                                <span class="module-icon">📝</span>
-                                <span class="module-status">15 Dk</span>
-                            </div>
-                            <div class="module-name">Mini Yazılı</div>
-                        </div>
-                        <div class="module-widget" onclick="selectModule(this)">
-                            <div class="module-top">
-                                <span class="module-icon">🎮</span>
-                                <span class="module-status">2 Oyun</span>
-                            </div>
-                            <div class="module-name">Oyunlar</div>
-                        </div>
+                        <span class="time-text">1:27 / 41:19</span>
+                        <button class="ctrl-icon-btn">🔊</button>
+                        <button class="ctrl-icon-btn">1x</button>
+                        <button class="ctrl-icon-btn">⛶</button>
+                    </div>
+
+                    <!-- Alt Butonlar -->
+                    <div class="player-footer">
+                        <button class="footer-btn green-btn">İzle</button>
+                        <button class="footer-btn gray-btn">Notlar 📄</button>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
 
-    <script>
-        function handleLogin() {
-            const username = document.getElementById('username-input').value.trim();
-            if(username === '') {
-                alert('Lütfen bir kullanıcı adı gir!');
-                return;
-            }
-            document.getElementById('display-user').innerText = username;
-            document.getElementById('auth-screen').style.display = 'none';
-            document.getElementById('app-container').style.display = 'flex';
-        }
+            <!-- SAĞ TARAF: HAZIRLIK VİDEOLARI LİSTESİ -->
+            <div class="right-section">
+                <div class="sidebar-header">
+                    <h3>HAZIRLIK VİDEOLARI</h3>
+                </div>
 
-        function switchView(viewName) {
-            const roadmapView = document.getElementById('roadmap-view');
-            const videoView = document.getElementById('video-view');
-            const navRoadmap = document.getElementById('nav-roadmap');
-            const navCamp = document.getElementById('nav-camp');
+                <div class="video-list">
+                    <div class="list-item active" onclick="selectLesson('Fen Bilimleri', 'Pzt 26', 'Fen Bilimleri 1. Yazılıya Hazırlık', event)">
+                        <div class="thumb-box">6. SINIF FEN</div>
+                        <div class="list-info">
+                            <span class="list-date">Pzt 26</span>
+                            <h4>Fen Bilimleri</h4>
+                        </div>
+                        <button class="notlar-btn">Notlar</button>
+                    </div>
 
-            if(viewName === 'roadmap') {
-                roadmapView.style.display = 'flex';
-                videoView.style.display = 'none';
-                navRoadmap.classList.add('active-nav');
-                navCamp.classList.remove('active-nav');
-            }
-        }
+                    <div class="list-item" onclick="selectLesson('Matematik', 'Sal 27', 'Matematik 1. Yazılıya Hazırlık', event)">
+                        <div class="thumb-box">6. SINIF MAT</div>
+                        <div class="list-info">
+                            <span class="list-date">Sal 27</span>
+                            <h4>Matematik</h4>
+                        </div>
+                        <button class="notlar-btn">Notlar</button>
+                    </div>
 
-        function openCampView(campName) {
-            document.getElementById('roadmap-view').style.display = 'none';
-            document.getElementById('video-view').style.display = 'flex';
-            document.getElementById('current-video-title').innerText = campName;
-            document.getElementById('nav-roadmap').classList.remove('active-nav');
-            document.getElementById('nav-camp').classList.add('active-nav');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+                    <div class="list-item" onclick="selectLesson('Sosyal Bilgiler', 'Çar 28', 'Sosyal Bilgiler 1. Yazılıya Hazırlık', event)">
+                        <div class="thumb-box">6. SINIF SOS</div>
+                        <div class="list-info">
+                            <span class="list-date">Çar 28</span>
+                            <h4>Sosyal Bilgiler</h4>
+                        </div>
+                        <button class="notlar-btn">Notlar</button>
+                    </div>
 
-        let isPlaying = false;
-        function togglePlay() {
-            isPlaying = !isPlaying;
-            const btn = document.querySelector('.play-main-btn');
-            btn.innerText = isPlaying ? '⏸' : '▶';
-        }
+                    <div class="list-item" onclick="selectLesson('Türkçe', 'Per 29', 'Türkçe 1. Yazılıya Hazırlık', event)">
+                        <div class="thumb-box">6. SINIF TR</div>
+                        <div class="list-info">
+                            <span class="list-date">Per 29</span>
+                            <h4>Türkçe</h4>
+                        </div>
+                        <button class="notlar-btn">Notlar</button>
+                    </div>
 
-        function skipTime(seconds) {
-            alert(seconds > 0 ? '10 saniye ileri sarıldı' : '10 saniye geri sarıldı');
-        }
+                    <div class="list-item" onclick="selectLesson('Din Kültürü', 'Cum 30', 'Din Kültürü 1. Yazılıya Hazırlık', event)">
+                        <div class="thumb-box">6. SINIF DİN</div>
+                        <div class="list-info">
+                            <span class="list-date">Cum 30</span>
+                            <h4>Din Kültürü</h4>
+                        </div>
+                        <button class="notlar-btn">Notlar</button>
+                    </div>
 
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
+                    <div class="list-item" onclick="selectLesson('Bilişim Teknolojileri', 'Paz 1', 'Bilişim Teknolojileri Hazırlık', event)">
+                        <div class="thumb-box">6. SINIF BİL</div>
+                        <div class="list-info">
+                            <span class="list-date">Paz 1</span>
+                            <h4>Bilişim Teknolojileri</h4>
+                        </div>
+                        <span class="status-done">✓ İzledin</span>
+                    </div>
+                </div>
 
-        function changeChapter(title, time, element) {
-            document.querySelectorAll('.chapter-card').forEach(card => card.classList.remove('active'));
-            element.classList.add('active');
-            document.getElementById('current-video-title').innerText = `Oynatılıyor: ${title} (${time})`;
-        }
+                <div class="sidebar-footer-link">
+                    <a>Yazılılar'a git →</a>
+                </div>
+            </div>
 
-        function selectModule(element) {
-            document.querySelectorAll('.module-widget').forEach(w => {
-                w.style.borderColor = 'var(--border-color)';
-                w.style.background = '#fafafa';
-            });
-            element.style.borderColor = 'var(--primary-green)';
-            element.style.background = 'var(--light-green)';
-        }
-    </script>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
