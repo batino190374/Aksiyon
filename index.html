@@ -3,165 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aksiyon - 6. Sınıf Yazılı Kampı</title>
+    <title>Aksiyon - 6. Sınıf Yol Haritası</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ÜST MENÜ -->
-    <header class="top-nav">
-        <div class="nav-left">
-            <span class="logo-text">AKSIYON</span>
-            <nav class="main-menu">
-                <a href="#" class="active">Yazılı Kampı</a>
-                <a href="#">Karnem</a>
-                <a href="#">PRO Sayfam</a>
-                <a href="#">Ortak Yazılı Sınavı</a>
-                <a href="#">Denemeler</a>
-            </nav>
-        </div>
-        <div class="nav-right">
-            <span class="pro-badge">PRO nedir?</span>
-            <span class="user-info">👤 asdasdasd (6. Sınıf)</span>
-        </div>
-    </header>
-
-    <!-- ANA İÇERİK ALANI -->
-    <main class="main-container">
-        
-        <!-- BAŞLIK VE GERİ SAYIM -->
-        <div class="page-title-row">
-            <h1>Yazılı Kampı</h1>
-            <div class="countdown-pill">İlk yazılına <b>3 gün</b></div>
-        </div>
-
-        <!-- TARİH SEÇİCİ ŞERİTİ -->
-        <div class="date-strip">
-            <div class="date-item">29</div>
-            <div class="date-item">30</div>
-            <div class="date-item active-date">
-                <span>31</span>
-                <span class="bugun-badge">BUGÜN</span>
+    <!-- GİRİŞ EKRANI -->
+    <div id="auth-screen">
+        <div class="auth-card">
+            <h1>AKSIYON</h1>
+            <div class="input-group">
+                <label>Kullanıcı Adı</label>
+                <input type="text" id="username-input" placeholder="Adını gir...">
             </div>
-            <div class="date-item">1</div>
+            <div class="input-group">
+                <label>Şifre</label>
+                <input type="password" id="password-input" placeholder="••••••••">
+            </div>
+            <button class="btn-primary" onclick="handleLogin()">SİSTEME BAĞLAN</button>
         </div>
+    </div>
 
-        <!-- İKİ SÜTUNLU ANA YAPI -->
-        <div class="content-grid">
+    <!-- ANA UYGULAMA -->
+    <div id="app-container">
+        <!-- ÜST NAVBAR -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <span class="logo-text" onclick="switchView('roadmap')">AKSIYON</span>
+                <nav class="main-menu">
+                    <a href="#" class="active" onclick="switchView('roadmap')">Yol Haritası & Takvim</a>
+                    <a href="#" onclick="openCampView('İngilizce 1. Yazılı Kampı', '31', 'Eki', 'İngilizce')">Yazılı Kampı</a>
+                    <a href="#">Karnem</a>
+                    <a href="#">PRO Sayfam</a>
+                    <a href="#">Ortak Yazılı Sınavı</a>
+                    <a href="#">Denemeler</a>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <button class="pro-nedir-btn">🔥 PRO nedir?</button>
+                <div class="tp-badge">★ 12.026 TP</div>
+                <div class="user-profile">
+                    <span id="display-user">Yağız</span>
+                    <div class="avatar-circle">🐼</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-container">
             
-            <!-- SOL TARAF: TAKVİM VE VİDEO OYNATICI -->
-            <div class="left-section">
-                <div class="day-box">
-                    <div class="day-info">
-                        <span class="day-name">CUMARTESİ</span>
-                        <span class="day-num">31</span>
-                        <span class="day-month">EKİM</span>
-                    </div>
-                    <div class="subject-info">
-                        <span class="subject-badge">İNGİLİZCE</span>
-                        <h2 id="current-lesson-title">1. Dönem 1. Yazılıya Hazırlık</h2>
-                        <p class="lesson-desc">İngilizce yazılın 12 Kasım'da</p>
-                    </div>
+            <!-- 1. YOL HARİTASI ANA EKRANI (Yatay uzayan şerit) -->
+            <div id="roadmap-view" class="roadmap-screen">
+                <div class="welcome-banner">
+                    <h2>Hoş Geldin, Siber Ajan!</h2>
+                    <p>6. Sınıf yatay genişleyen macera yol haritan seni bekliyor. Duraklara tıkla ve aksiyona başla!</p>
                 </div>
 
-                <!-- VİDEO OYNATICI KUTUSU -->
-                <div class="video-player-box">
-                    <div class="video-screen">
-                        <div class="play-circle">▶</div>
-                        <div class="video-title-overlay" id="video-overlay-title">6. SINIF İNGİLİZCE 1. DÖNEM 1. YAZILIYA HAZIRLIK</div>
+                <div class="page-title-row">
+                    <h1>Tonguç 6. Sınıf Yatay Yol Haritası</h1>
+                    <div class="countdown-pill">İlk yazılına <b>3 gün</b></div>
+                </div>
+
+                <!-- Yatay Genişleyen Yol Haritası -->
+                <div class="horizontal-road-wrapper">
+                    <div class="horizontal-road-track">
+                        <div class="road-node-h" onclick="openCampView('Ortak Katlar ve Bölenler', '01', 'Eki', 'Matematik')">
+                            <div class="node-circle">!</div>
+                            <span>1 Ekim - Ortak Katlar</span>
+                        </div>
+                        <div class="road-node-h" onclick="openCampView('Toplumsal Sorunlar', '02', 'Eki', 'Sosyal')">
+                            <div class="node-circle">!</div>
+                            <span>2 Ekim - Toplumsal Sorunlar</span>
+                        </div>
+                        <div class="road-node-h" onclick="openCampView('Olasılık', '05', 'Eki', 'Matematik')">
+                            <div class="node-circle">!</div>
+                            <span>5 Ekim - Olasılık</span>
+                        </div>
+                        <div class="road-node-h" onclick="openCampView('Cümlede Anlam', '07', 'Eki', 'Türkçe')">
+                            <div class="node-circle">!</div>
+                            <span>7 Ekim - Cümlede Anlam</span>
+                        </div>
+                        <div class="road-node-h active" onclick="openCampView('Classroom Life', '08', 'Eki', 'İngilizce')">
+                            <div class="node-circle">!</div>
+                            <span>8 Ekim - Classroom Life</span>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- 2. VİDEO VE SOL DİKEY MİNİ YOL HARİTASI EKRANI -->
+            <div id="video-view" class="video-screen-container" style="display: none;">
+                
+                <div class="page-title-row">
+                    <h1>Yazılı Kampı & Ders Ekranı</h1>
+                    <div class="countdown-pill">İlk yazılına <b>3 gün</b></div>
+                </div>
+
+                <!-- İKİ SÜTUNLU YAPI: SOL TARAF DİKEY MİNİ YOL HARİTASI & WIDGETLAR, SAĞ VİDEO -->
+                <div class="content-grid-reverse">
                     
-                    <!-- Özel Kontrol Çubuğu -->
-                    <div class="player-controls">
-                        <button class="ctrl-icon-btn">▶</button>
-                        <button class="ctrl-icon-btn">⏪ 10</button>
-                        <button class="ctrl-icon-btn">10 ⏩</button>
-                        <div class="slider-track">
-                            <div class="slider-thumb"></div>
+                    <!-- SOL TARAF: DİKEY MİNİ YOL HARİTASI VE AKSİYON WIDGETLARI -->
+                    <div class="left-section">
+                        
+                        <!-- Dikey Mini Yol Haritası (Sol Kısım Üst) -->
+                        <div class="vertical-mini-roadmap">
+                            <h3>Mini Yol Haritası</h3>
+                            <div class="vertical-nodes-list">
+                                <div class="v-node active" onclick="openCampView('Classroom Life', '08', 'Eki', 'İngilizce')">
+                                    <span class="v-dot"></span>
+                                    <div>
+                                        <span class="v-date">8 Ekim Per</span>
+                                        <h4>Classroom Life</h4>
+                                    </div>
+                                </div>
+                                <div class="v-node" onclick="openCampView('Cümlede Anlam', '07', 'Eki', 'Türkçe')">
+                                    <span class="v-dot"></span>
+                                    <div>
+                                        <span class="v-date">7 Ekim Çar</span>
+                                        <h4>Cümlede Anlam</h4>
+                                    </div>
+                                </div>
+                                <div class="v-node" onclick="openCampView('Olasılık', '05', 'Eki', 'Matematik')">
+                                    <span class="v-dot"></span>
+                                    <div>
+                                        <span class="v-date">5 Ekim Pzt</span>
+                                        <h4>Olasılık</h4>
+                                    </div>
+                                </div>
+                                <div class="v-node" onclick="openCampView('Toplumsal Sorunlar', '02', 'Eki', 'Sosyal')">
+                                    <span class="v-dot"></span>
+                                    <div>
+                                        <span class="v-date">2 Ekim Cum</span>
+                                        <h4>Toplumsal Sorunlar</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <span class="time-text">1:27 / 41:19</span>
-                        <button class="ctrl-icon-btn">🔊</button>
-                        <button class="ctrl-icon-btn">1x</button>
-                        <button class="ctrl-icon-btn">⛶</button>
+
+                        <!-- Ders Bilgi Kartı -->
+                        <div class="day-box">
+                            <div class="day-info">
+                                <span class="day-name" id="box-day-name">CUMARTESİ</span>
+                                <span class="day-num" id="box-day-num">31</span>
+                                <span class="day-month" id="box-day-month">EKİM</span>
+                            </div>
+                            <div class="subject-info">
+                                <span class="subject-badge" id="box-subject-badge">İNGİLİZCE</span>
+                                <h2 id="current-lesson-title">1. Dönem 1. Yazılıya Hazırlık</h2>
+                                <p class="lesson-desc" id="box-lesson-desc">İngilizce yazılın 12 Kasım'da</p>
+                            </div>
+                        </div>
+
+                        <!-- Konuyu Aksiyonla Widgetları -->
+                        <div class="action-modules-section">
+                            <div class="section-title">
+                                <span>Konuyu Aksiyonla</span>
+                                <span class="progress-badge">%0 Tamamlandı</span>
+                            </div>
+                            <div class="modules-grid-vertical">
+                                <div class="module-widget" onclick="selectModule(this)">
+                                    <div class="module-top">
+                                        <span class="module-icon">🎓</span>
+                                        <span class="module-status">Sırada</span>
+                                    </div>
+                                    <div class="module-name">Konuyu Öğren</div>
+                                </div>
+                                <div class="module-widget" onclick="selectModule(this)">
+                                    <div class="module-top">
+                                        <span class="module-icon">⚡</span>
+                                        <span class="module-status">10 Soru</span>
+                                    </div>
+                                    <div class="module-name">Hızlı Sorular</div>
+                                </div>
+                                <div class="module-widget" onclick="selectModule(this)">
+                                    <div class="module-top">
+                                        <span class="module-icon">📝</span>
+                                        <span class="module-status">15 Dk</span>
+                                    </div>
+                                    <div class="module-name">Mini Yazılı</div>
+                                </div>
+                                <div class="module-widget" onclick="selectModule(this)">
+                                    <div class="module-top">
+                                        <span class="module-icon">🎮</span>
+                                        <span class="module-status">2 Oyun</span>
+                                    </div>
+                                    <div class="module-name">Oyunlar</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Alt Butonlar -->
-                    <div class="player-footer">
-                        <button class="footer-btn green-btn">İzle</button>
-                        <button class="footer-btn gray-btn">Notlar 📄</button>
+                    <!-- SAĞ TARAF: VİDEO OYNATICI VE VİDEO İÇİ SORU KUTUSU -->
+                    <div class="right-section-video">
+                        <div class="video-player-box">
+                            <div class="video-frame-wrapper">
+                                <iframe id="youtube-iframe" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                                
+                                <!-- Video İçi Etkileşimli Soru Katmanı -->
+                                <div id="video-popup-question" class="video-question-overlay" style="display: none;">
+                                    <div class="question-box-inner">
+                                        <h4>⚡ Kritik Soru!</h4>
+                                        <p>Bu cümlenin anlamı aşağıdakilerden hangisidir?</p>
+                                        <button class="q-btn" onclick="closeQuestion()">A) Seçenek 1</button>
+                                        <button class="q-btn" onclick="closeQuestion()">B) Seçenek 2</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Kontrol Çubuğu -->
+                            <div class="custom-controls">
+                                <button class="play-main-btn" id="play-pause-btn" onclick="togglePlayState()">⏸</button>
+                                <button class="ctrl-btn" onclick="skipTime(-10)">⏪ 10</button>
+                                <button class="ctrl-btn" onclick="skipTime(10)">10 ⏩</button>
+                                
+                                <div class="progress-bar-container">
+                                    <input type="range" class="progress-slider" min="0" max="100" value="30">
+                                    <span class="time-display" id="time-counter">1:27 / 41:19</span>
+                                </div>
+
+                                <button class="ctrl-btn">🔊</button>
+                                <button class="ctrl-btn">1x</button>
+                                <button class="ctrl-btn" onclick="toggleFullscreen()">⛶</button>
+                            </div>
+
+                            <div class="player-footer">
+                                <button class="footer-btn green-btn" onclick="showPopupQuestion()">Soru Aç ⚡</button>
+                                <button class="footer-btn gray-btn">Notlar 📄</button>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
-            <!-- SAĞ TARAF: HAZIRLIK VİDEOLARI LİSTESİ -->
-            <div class="right-section">
-                <div class="sidebar-header">
-                    <h3>HAZIRLIK VİDEOLARI</h3>
-                </div>
-
-                <div class="video-list">
-                    <div class="list-item active" onclick="selectLesson('Fen Bilimleri', 'Pzt 26', 'Fen Bilimleri 1. Yazılıya Hazırlık', event)">
-                        <div class="thumb-box">6. SINIF FEN</div>
-                        <div class="list-info">
-                            <span class="list-date">Pzt 26</span>
-                            <h4>Fen Bilimleri</h4>
-                        </div>
-                        <button class="notlar-btn">Notlar</button>
-                    </div>
-
-                    <div class="list-item" onclick="selectLesson('Matematik', 'Sal 27', 'Matematik 1. Yazılıya Hazırlık', event)">
-                        <div class="thumb-box">6. SINIF MAT</div>
-                        <div class="list-info">
-                            <span class="list-date">Sal 27</span>
-                            <h4>Matematik</h4>
-                        </div>
-                        <button class="notlar-btn">Notlar</button>
-                    </div>
-
-                    <div class="list-item" onclick="selectLesson('Sosyal Bilgiler', 'Çar 28', 'Sosyal Bilgiler 1. Yazılıya Hazırlık', event)">
-                        <div class="thumb-box">6. SINIF SOS</div>
-                        <div class="list-info">
-                            <span class="list-date">Çar 28</span>
-                            <h4>Sosyal Bilgiler</h4>
-                        </div>
-                        <button class="notlar-btn">Notlar</button>
-                    </div>
-
-                    <div class="list-item" onclick="selectLesson('Türkçe', 'Per 29', 'Türkçe 1. Yazılıya Hazırlık', event)">
-                        <div class="thumb-box">6. SINIF TR</div>
-                        <div class="list-info">
-                            <span class="list-date">Per 29</span>
-                            <h4>Türkçe</h4>
-                        </div>
-                        <button class="notlar-btn">Notlar</button>
-                    </div>
-
-                    <div class="list-item" onclick="selectLesson('Din Kültürü', 'Cum 30', 'Din Kültürü 1. Yazılıya Hazırlık', event)">
-                        <div class="thumb-box">6. SINIF DİN</div>
-                        <div class="list-info">
-                            <span class="list-date">Cum 30</span>
-                            <h4>Din Kültürü</h4>
-                        </div>
-                        <button class="notlar-btn">Notlar</button>
-                    </div>
-
-                    <div class="list-item" onclick="selectLesson('Bilişim Teknolojileri', 'Paz 1', 'Bilişim Teknolojileri Hazırlık', event)">
-                        <div class="thumb-box">6. SINIF BİL</div>
-                        <div class="list-info">
-                            <span class="list-date">Paz 1</span>
-                            <h4>Bilişim Teknolojileri</h4>
-                        </div>
-                        <span class="status-done">✓ İzledin</span>
-                    </div>
-                </div>
-
-                <div class="sidebar-footer-link">
-                    <a>Yazılılar'a git →</a>
-                </div>
-            </div>
-
-        </div>
-    </main>
+        </main>
+    </div>
 
     <script src="app.js"></script>
 </body>
